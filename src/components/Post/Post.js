@@ -7,7 +7,7 @@ import PostContent from './PostContent';
 import PostInfo from './PostInfo';
 import PostNavigation from './PostNavigation';
 
-import { postPreview, image } from './PropTypes';
+import { postPreview, image } from './propTypes';
 
 
 const Post = ({ context, post }) => {
