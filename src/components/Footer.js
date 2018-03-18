@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import GatsbyIcon from './icons/GatsbyIcon';
 import NetlifyIcon from './icons/NetlifyIcon';
