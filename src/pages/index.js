@@ -5,16 +5,18 @@ import Helmet from 'react-helmet';
 
 import Bio from '../components/Bio';
 import MainHeader from '../components/MainHeader';
-import cover from './cover.jpg';
+// import cover from './cover.jpg';
 
 const BlogIndex = (props) => {
   const siteTitle = get(props, 'data.site.siteMetadata.title');
   const posts = get(props, 'data.allMarkdownRemark.edges');
+  console.log(props);
+  const cover = null;
   return (
     <div>
       <Helmet title="siteTitle Helmet" />
       <MainHeader
-        image={cover}
+        image={props.data.cover.childImageSharp.sizes}
         title="Misterious Lively Alejandro"
         url=""
         description="Yes. The title was randomly generated"
@@ -50,6 +52,13 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    cover: file(relativePath: { eq: "cover.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 2880) {
+          ...GatsbyImageSharpSizes_withWebp
+        }
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

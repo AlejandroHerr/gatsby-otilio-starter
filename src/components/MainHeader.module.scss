@@ -41,6 +41,9 @@ a {
 
 .main_header__image {
 	@extend %cover_header__image;
+	img {
+    margin: 0;
+  }
 }
 
 .main_header__image_shadow {
