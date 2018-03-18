@@ -1,0 +1,7 @@
+@import "~prismjs/themes/prism-solarizedlight.css";
+@import "./fonts";
+
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: $mono-font-familiy;
+}

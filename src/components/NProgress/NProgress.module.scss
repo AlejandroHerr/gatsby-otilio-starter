@@ -1,0 +1,30 @@
+.n_progress {
+  pointer-events: none;
+}
+
+.n_progress__bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #29d;
+ // transition: transform 200ms ease;
+  z-index: 1031;
+}
+
+.n_progress__bar--reseting {
+  //transition: opacity 1ms ease;
+  //opacity: 0;
+}
+
+.n_progress__peg {
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+  transform: rotate(3deg) translate3d(0, -4px, 0);
+  opacity: 1;
+}

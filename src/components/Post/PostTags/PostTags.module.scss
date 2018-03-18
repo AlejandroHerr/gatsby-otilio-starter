@@ -1,0 +1,32 @@
+@import '../../../colors';
+@import '../../../fonts';
+
+.post_tags {
+  max-width: 75%;
+  float: left;
+  font-family: $header-font-familiy;
+}
+
+.post_tags__tag {
+  display: inline-block;
+  margin: 0 .334em .667em 0;
+  padding: .575em 1em;
+  border: 1px solid $primary-color;
+  border-radius: .5em;
+  background: $color-white;
+  color: $primary-color;
+  font-size: .75em;
+  font-weight: 500;
+  line-height: 1.334em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all ease .3s;
+  box-sizing: border-box;
+}
+
+.post_tags__tag:hover,
+.post_tags__tag:focus {
+  background: $primary-color;
+  color: $color-white;
+}

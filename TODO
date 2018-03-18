@@ -1,0 +1,40 @@
+gatsby-otilio-starter:
+
+  Blog post:
+    ☐ Display the useful information @started(18-03-11 12:25)
+    ☐ Next a previous post
+    ☐ Author info
+  Progress Bar:
+  ✔ Accept Style as a function @started(18-03-11 11:52) @done (18-03-11 12:25) @lasted(0:33)
+  Internals:
+    ☐ Optimize GA
+    ☐ Optimiza Google Speed Insights
+    ☐ Optimize Images
+    ☐ Optimize how does it get the posts, maybe two folders
+  All post page:
+    ☐ Finish
+  Menu:
+    ☐ Find a way for a nice menu
+
+i2cBusPromised:
+  ☐ Finish tests @critical
+  ☐ Green Keeper for deps @high
+scrollPhatHd:
+  ☐ color led
+  ☐ matrix led
+enviro-phat-hd.js:
+  ☐ green keeper for deps @high
+  ☐ better docs
+  temp/press:
+    ☐ add tests @high
+  adc:
+   ☐ write interface to access it
+   ☐ write tests for it
+  motion:
+   ☐ write interface to access it
+   ☐ write tests for it
+  light/colour:
+   ☐ write interface to access it
+   ☐ write tests for it
+  leds:
+    ☐ interface for led
