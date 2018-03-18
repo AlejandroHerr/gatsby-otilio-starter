@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
+import Footer from '../Footer';
+
 import PostHeader from './PostHeader';
 import ProgressControl from '../ProgressControl';
 import PostInfo from './PostInfo';
@@ -23,37 +25,28 @@ const Post = ({ context, post }) => {
     <div>
       <PostHeader
         author={author}
-        date={new Date(date)}
+        date={date}
         title={title}
         image={coverImage}
         timeToRead={post.timeToRead}
       />
       <main>
-        <article>
-          <div style={{
+        <article style={{
               maxWidth: '32em',
               margin: '0 auto',
               padding: '0 2em',
             }}
-          >
-            <section className={styles.post__content}>
-              <ProgressControl>
-                <div dangerouslySetInnerHTML={{ __html: post.html }} />
-              </ProgressControl>
-            </section>
-            <PostInfo tags={tags} />
-            <PostNavigation next={next} prev={prev} />
-          </div>
+        >
+          <section className={styles.post__content}>
+            <ProgressControl>
+              <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            </ProgressControl>
+          </section>
+          <PostInfo tags={tags} />
+          <PostNavigation next={next} prev={prev} />
         </article>
       </main>
-      <footer id="footer">
-        <div className="inner">
-          <section className="credits">
-            <span className="credits-theme">Theme <a href="https://github.com/zutrinken/attila">Attila</a> by <a href="http://zutrinken.com" rel="nofollow">zutrinken</a></span>
-            <span className="credits-software">Published with <a href="http://ghost.org">Ghost</a></span>
-          </section>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
