@@ -1,22 +1,22 @@
 @import '../../colors';
 
-.blog_post__content a {
+.post__content a {
   border-bottom: 1px solid $primary-color;
 }
 
-.blog_post__content a:hover,
-.blog_post__content a:focus {
+.post__content a:hover,
+.post__content a:focus {
   color: $primary-color;
 }
 
-.blog_post__content img,
-.blog_post__content :global(.gatsby-highlight) {
+.post__content img,
+.post__content :global(.gatsby-highlight) {
   width: 110%;
   max-width: none;
   margin-left: -5%;
 }
 
-.blog_post__content blockquote {
+.post__content blockquote {
   margin: 2em auto;
   padding: 1em;
   box-sizing: border-box;

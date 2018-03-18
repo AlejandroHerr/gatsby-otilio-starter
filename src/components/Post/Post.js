@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 import PostHeader from './PostHeader';
-import PostContent from './PostContent';
+import ProgressControl from '../ProgressControl';
 import PostInfo from './PostInfo';
 import PostNavigation from './PostNavigation';
 
 import { postPreview, image } from './propTypes';
 
+import styles from './Post.module.scss';
 
 const Post = ({ context, post }) => {
   const { next, prev } = context;
@@ -35,7 +36,11 @@ const Post = ({ context, post }) => {
               padding: '0 2em',
             }}
           >
-            <PostContent html={post.html} />
+            <section className={styles.post__content}>
+              <ProgressControl>
+                <div dangerouslySetInnerHTML={{ __html: post.html }} />
+              </ProgressControl>
+            </section>
             <PostInfo tags={tags} />
             <PostNavigation next={next} prev={prev} />
           </div>
