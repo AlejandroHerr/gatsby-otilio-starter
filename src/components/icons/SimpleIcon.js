@@ -23,9 +23,9 @@ SimpleIcon.defaultProps = {
 };
 
 SimpleIcon.propTypes = {
-  children: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  style: PropTypes.object,
+  style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
 export default SimpleIcon;
