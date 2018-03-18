@@ -19,8 +19,6 @@ const BlogIndex = (props) => {
         url=""
         description="Yes. The title was randomly generated"
       />
-      <script src="https://gist.github.com/AlejandroHerr/4ac4826298aee85edf67b8cce63825b3.js" />
-
       {posts.map((post) => {
         if (post.node.frontmatter.path !== '/404/') {
           const title = get(post, 'node.frontmatter.title') || post.node.path;

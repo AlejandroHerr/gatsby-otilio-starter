@@ -4,6 +4,7 @@ let stylesStr;
 if (process.env.NODE_ENV === 'production') {
   try {
     stylesStr = require('!raw-loader!../public/styles.css');
+    // stylesStr += require('!raw-loader!../public/global.css');
   } catch (e) {
     console.log(e);
   }
@@ -20,6 +21,8 @@ module.exports = class HTML extends React.Component {
         />
       );
     }
+
+    // console.log(this.props.headComponents);
     return (
       <html {...this.props.htmlAttributes}>
         <head>
@@ -29,8 +32,8 @@ module.exports = class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          {this.props.headComponents}
           {css}
+          {this.props.headComponents}
           <style
             id="loader-css"
             dangerouslySetInnerHTML={{
