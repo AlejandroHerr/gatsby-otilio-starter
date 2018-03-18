@@ -1,0 +1,47 @@
+@import "../colors";
+@import "../fonts";
+
+.footer {
+  margin-bottom: 6em;
+}
+
+.footer__wrapper {
+  max-width: 32em;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+.footer__credits {
+  padding: 1.1em 0;
+  color: $color-blue-30;
+  font-family: $header-font-familiy;
+  font-size: .625em;
+  line-height: 1.5em;
+  overflow: auto;
+  opacity: .7;
+}
+
+.footer__authoring {
+  float: left;
+  text-align: left;
+}
+
+.footer__tech {
+  float: right;
+  text-align: right;
+}
+
+.footer__gatsby_icon,
+.footer__netlify_icon {
+  margin-bottom: -.15em;
+  color: $color-blue-15;
+}
+
+.footer__gatsby_icon:hover {
+  color: #744c9e;
+}
+
+.footer__netlify_icon:hover {
+  color: #00c7b7;
+}
+
