@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
 
 import Footer from '../Footer';
+import ProgressControl from '../ProgressControl';
 
 import PostHeader from './PostHeader';
-import ProgressControl from '../ProgressControl';
 import PostInfo from './PostInfo';
 import PostNavigation from './PostNavigation';
 

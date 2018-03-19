@@ -1,29 +1,21 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import get from 'lodash/get';
 import Helmet from 'react-helmet';
 
-import Bio from '../components/Bio';
 import MainHeader from '../components/MainHeader';
-// import cover from './cover.jpg';
 
-const BlogIndex = (props) => {
-  const siteTitle = get(props, 'data.site.siteMetadata.title');
-  const posts = get(props, 'data.allMarkdownRemark.edges');
-  console.log(props);
-  const cover = null;
-  return (
-    <div>
-      <Helmet title="siteTitle Helmet" />
-      <MainHeader
-        image={props.data.cover.childImageSharp.sizes}
-        title="Misterious Lively Alejandro"
-        url=""
-        description="Yes. The title was randomly generated"
-      />
-      {posts.map((post) => {
+const BlogIndex = ({ data }) => (
+  <div>
+    <Helmet title="siteTitle Helmet" />
+    <MainHeader
+      image={data.cover.childImageSharp.sizes}
+      title="Misterious Lively Alejandro"
+      url=""
+      description="Yes. The title was randomly generated"
+    />
+    {data.allMarkdownRemark.edges.posts.map((post) => {
         if (post.node.frontmatter.path !== '/404/') {
-          const title = get(post, 'node.frontmatter.title') || post.node.path;
+          const title = post.node.frontmatter.title || post.node.path;
           return (
             <div key={post.node.frontmatter.path}>
               <h3
@@ -41,12 +33,13 @@ const BlogIndex = (props) => {
         }
         return (<div>Not Found!</div>);
       })}
-    </div>
-  );
-};
+  </div>
+);
 
 export default BlogIndex;
 
+
+/* eslint-disable */
 export const pageQuery = graphql`
   query IndexQuery {
     site {

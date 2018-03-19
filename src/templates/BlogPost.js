@@ -1,22 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import get from 'lodash/get';
 
 import Post from '../components/Post';
 
-const getPostData = post => post.frontmatter || {};
-
-const BlogPostTemplate = (props) => {
-  const post = props.data.markdownRemark;
-  const siteTitle = get(props, 'data.site.siteMetadata.title');
+const BlogPostTemplate = ({ data, pathContext }) => {
+  const post = data.markdownRemark;
+  const siteTitle = data.site.siteMetadata.title;
 
   return (
     <div>
       <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} description="Some lorem" />
       <Post
-        context={props.pathContext}
-        post={props.data.markdownRemark}
+        context={pathContext}
+        post={data.markdownRemark}
       />
     </div>
   );
@@ -42,6 +39,7 @@ BlogPostTemplate.propTypes = {
 
 export default BlogPostTemplate;
 
+/* eslint-disable */
 export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
     site {

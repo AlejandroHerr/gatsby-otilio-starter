@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import styles from './CoverHeader.module.scss';
 
 import CoverImage from './CoverImage';
 
-console.log(styles);
+import styles from './CoverHeader.module.scss';
 
 const CoverHeader = ({
-  description, logo, image, title, url, isHome, isPost,
+  description, logo, image, title, url, isPost,
 }) => (
   <header className={classnames(styles.coverHeader, {
     [styles['coverHeader--post']]: isPost,
@@ -56,37 +55,3 @@ CoverHeader.propTypes = {
 };
 
 export default CoverHeader;
-
-/*
-{{#if @blog.navigation}}
-<span id="menu-button" class="nav-button">
-  <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
-</span>
-{{/if}}
-*/
-
-/*
-<header id="post-header"{{#if feature_image}} class="has-cover" {{/if}}>
-	<div class="inner">
-		<nav id="navigation">
-			{{#if @blog.logo}}
-			<span class="blog-logo">
-				<a href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a>
-			</span>
-			{{else}}
-			<span id="home-button" class="nav-button">
-				<a class="home-button" href="{{@blog.url}}" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
-			</span>
-			{{/if}}
-			{{#if @blog.navigation}}
-			<span id="menu-button" class="nav-button">
-				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
-			</span>
-			{{/if}}
-		</nav>
-		<h1 class="post-title">{{{title}}}</h1>
-		<span class="post-meta">{{author}} | <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time></span>
-		{{#if feature_image}}<div class="post-cover cover" style="background-image: url('{{feature_image}}');"></div>{{/if}}
-	</div>
-</header>
-*/

@@ -43,7 +43,6 @@ const MainHeader = ({
 
 MainHeader.defaultProps = {
   description: '',
-  logo: '',
   image: '',
   title: '',
   url: '',
@@ -51,7 +50,6 @@ MainHeader.defaultProps = {
 
 MainHeader.propTypes = {
   description: PropTypes.string,
-  logo: PropTypes.string,
   image: PropTypes.string,
   title: PropTypes.string,
   url: PropTypes.string,
