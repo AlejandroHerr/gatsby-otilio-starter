@@ -13,7 +13,7 @@ const BlogIndex = ({ data }) => (
       url=""
       description="Yes. The title was randomly generated"
     />
-    {data.allMarkdownRemark.edges.posts.map((post) => {
+    {data.allMarkdownRemark.edges.map((post) => {
         if (post.node.frontmatter.path !== '/404/') {
           const title = post.node.frontmatter.title || post.node.path;
           return (
