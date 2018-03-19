@@ -1,15 +1,10 @@
 import React from 'react';
+import ByteIcon from './ByteIcon';
 
-import style from './style';
-
-const ChevronLeft = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 32 32"
-    style={style}
-  >
+const ChevronLeft = props => (
+  <ByteIcon {...props}>
     <path d="M20 30 L8 16 20 2" />
-  </svg>
+  </ByteIcon>
 );
 
 export default ChevronLeft;

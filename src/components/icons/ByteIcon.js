@@ -1,31 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SimpleIcon = ({ children, className, style }) => (
+const ByteIcon = ({ children, className, style }) => (
   <svg
     className={className}
     style={{
-      fill: 'currentColor',
-      height: '1.5rem',
-      width: '1.5rem',
+      width: '.75em',
+      height: '.75em',
+      fill: 'none',
+      stroke: 'currentColor',
+      strokeLinecap: 'round',
+      strokeLinejoin: 'round',
+      strokeWidth: '2',
       ...style,
     }}
-    viewBox="0 0 24 24"
+    viewBox="0 0 32 32"
     xmlns="http://www.w3.org/2000/svg"
   >
     {children}
   </svg>
 );
 
-SimpleIcon.defaultProps = {
+ByteIcon.defaultProps = {
   className: '',
   style: {},
 };
 
-SimpleIcon.propTypes = {
+ByteIcon.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
-export default SimpleIcon;
+export default ByteIcon;
