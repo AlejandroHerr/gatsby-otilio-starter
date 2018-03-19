@@ -87,5 +87,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-sass',
+    'gatsby-plugin-catch-links',
   ],
 };
