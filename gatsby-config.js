@@ -1,3 +1,4 @@
+const config = require('./config');
 
 module.exports = {
   siteMetadata: {
@@ -48,7 +49,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        // trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: config.gaTrackingId,
       },
     },
     'gatsby-plugin-offline',
