@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
 
 import styles from './PostTags.module.scss';
 
 const PostTag = ({ tag }) => (
-  <a className={styles.post_tags__tag} href={`/tags/${tag.toLowerCase()}`}>{tag}</a>
+  <Link className={styles.post_tags__tag} to={`/tags/${tag.toLowerCase()}`}>{tag}</Link>
 );
 
 PostTag.propTypes = {
