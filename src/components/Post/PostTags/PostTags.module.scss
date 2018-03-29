@@ -10,7 +10,7 @@
 .post_tags__tag {
   display: inline-block;
   margin: 0 .334em .667em 0;
-  padding: .575em 1em;
+  padding: .25em 1em;
   border: 1px solid $primary-color;
   border-radius: .5em;
   background: $color-white;
@@ -29,4 +29,12 @@
 .post_tags__tag:focus {
   background: $primary-color;
   color: $color-white;
+}
+
+@media only screen and (max-width: 640px) {
+  .post_tags {
+    max-width: none;
+    margin: 0 0 2em;
+    float: none;
+  }
 }

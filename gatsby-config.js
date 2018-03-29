@@ -2,9 +2,10 @@ const config = require('./config');
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
-    author: 'Kyle Mathews',
-    siteUrl: 'http://sdsdsd',
+    title: 'Misterious Lively Alejandro',
+    author: 'AlejandroHerr',
+    cover: './data/avatar.png',
+    siteUrl: 'http://alejandroherr.io',
     authors: [
       {
         name: 'AlejandroHerr',
@@ -21,6 +22,14 @@ module.exports = {
         name: 'data',
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/posts`,
+        name: 'posts',
+      },
+    },
+    'gatsby-transformer-json',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -41,6 +50,7 @@ module.exports = {
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
+          'gatsby-remark-autolink-headers',
         ],
       },
     },
@@ -79,7 +89,7 @@ module.exports = {
                 edges {
                   node {
                     path,
-                    
+
                   }
                 }
               }

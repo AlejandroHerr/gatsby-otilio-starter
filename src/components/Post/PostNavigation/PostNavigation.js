@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ChevronLeft from '../../icons/ChevronLeftIcon';
-import ChevronRight from '../../icons/ChevronRightIcon';
-
 import PostNavigationLink from './PostNavigationLink';
 import styles from './PostNavigation.module.scss';
 
@@ -12,14 +9,14 @@ const PostNavigation = ({ next, prev }) => (
     {next &&
       <PostNavigationLink
         className={styles.post_navigation__next}
-        icon={ChevronLeft}
+        icon="chevron_left"
         {...next}
       />
     }
     {prev &&
       <PostNavigationLink
         className={styles.post_navigation__prev}
-        icon={ChevronRight}
+        icon="chevron_right"
         {...prev}
 
       />

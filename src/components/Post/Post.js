@@ -1,48 +1,59 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import { authorType, postPreviewType, postType, siteInfoType } from '../../templates/Post.propTypes';
 
 import Footer from '../Footer';
 import ProgressControl from '../ProgressControl';
 
 import PostHeader from './PostHeader';
-import PostInfo from './PostInfo';
+import PostTags from './PostTags';
+import PostShare from './PostShare';
+import PostAuthor from './PostAuthor';
 import PostNavigation from './PostNavigation';
-
-import { postPreview, image } from './propTypes';
 
 import styles from './Post.module.scss';
 
-const Post = ({ context, post }) => {
-  const { next, prev } = context;
+const Post = ({
+  author, navigation, post, siteInfo,
+}) => {
+  const { next, prev } = navigation;
 
   const {
-    author, title, cover, tags, date,
+    author: postAuthor, title, cover, tags, date, path,
   } = post.frontmatter;
+
+  const { url } = siteInfo;
+
 
   const coverImage = cover && (cover.childImageSharp.resolutions || cover.childImageSharp.sizes);
   return (
     <div>
       <PostHeader
-        author={author}
+        author={postAuthor}
         date={date}
         title={title}
         image={coverImage}
         timeToRead={post.timeToRead}
       />
       <main>
-        <article style={{
-              maxWidth: '32em',
-              margin: '0 auto',
-              padding: '0 2em',
-            }}
-        >
-          <section className={styles.post__content}>
-            <ProgressControl>
-              <div dangerouslySetInnerHTML={{ __html: post.html }} />
-            </ProgressControl>
-          </section>
-          <PostInfo tags={tags} />
-          <PostNavigation next={next} prev={prev} />
+        <article>
+          <div className={styles.post__inner}>
+            <section className={styles.post__content}>
+              <ProgressControl>
+                <div dangerouslySetInnerHTML={{ __html: post.html }} />
+              </ProgressControl>
+            </section>
+            <section className={styles.post__info}>
+              {tags && tags.length && (<PostTags tags={tags} />)}
+              <PostShare path={path} url={url} />
+              <div className={styles.post__clear} />
+              <PostAuthor author={author} />
+              <div className="clear" />
+            </section>
+            <PostNavigation next={next} prev={prev} />
+          </div>
         </article>
       </main>
       <Footer />
@@ -51,22 +62,13 @@ const Post = ({ context, post }) => {
 };
 
 Post.propTypes = {
-  context: PropTypes.shape({
-    next: postPreview,
-    prev: postPreview,
+  author: authorType.isRequired,
+  navigation: PropTypes.shape({
+    next: postPreviewType,
+    prev: postPreviewType,
   }).isRequired,
-  post: PropTypes.shape({
-    frontmatter: PropTypes.shape({
-      author: PropTypes.string.isRequired,
-      cover: image,
-      date: PropTypes.string.isRequired,
-      tags: PropTypes.arrayOf(PropTypes.string),
-      title: PropTypes.string.isRequired,
-    }).isRequired,
-    html: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    timeToRead: PropTypes.number.isRequired,
-  }).isRequired,
+  post: postType.isRequired,
+  siteInfo: siteInfoType.isRequired,
 };
 
 

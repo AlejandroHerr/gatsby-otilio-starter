@@ -1,13 +1,12 @@
 import React from 'react';
 
-import GatsbyIcon from './icons/GatsbyIcon';
-import NetlifyIcon from './icons/NetlifyIcon';
+import SimpleIcon from './icons/SimpleIcon';
 
 import styles from './Footer.module.scss';
 
 const Footer = () => (
   <footer className={styles.footer}>
-    <div className={styles.footer__wrapper}>
+    <div className={styles.footer__inner}>
       <section className={styles.footer__credits}>
         <div className={styles.footer__authoring}>
           <span>
@@ -28,13 +27,13 @@ const Footer = () => (
           <span>
             Powered by
             {' '}
-            <a href="https://www.gatsbyjs.org"><GatsbyIcon className={styles.footer__gatsby_icon} /></a>
+            <a href="https://www.gatsbyjs.org"><SimpleIcon brand="gatsby" className={styles.footer__gatsby_icon} /></a>
           </span>
           <br />
           <span>
             Served by
             {' '}
-            <a href="https://www.netlify.com/"><NetlifyIcon className={styles.footer__netlify_icon} /></a>
+            <a href="https://www.netlify.com/"><SimpleIcon brand="netlify" className={styles.footer__netlify_icon} /></a>
           </span>
         </div>
       </section>

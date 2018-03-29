@@ -365,3 +365,9 @@ img {
 .footnote-ref::after {
   content: ']';
 }
+
+@media only screen and (max-width: 640px) {
+  html {
+    font-size: 50%;
+  }
+}

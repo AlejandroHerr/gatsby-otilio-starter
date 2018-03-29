@@ -1,12 +1,27 @@
 @import '../../colors';
 
-.post__content a {
-  border-bottom: 1px solid $primary-color;
+.post__inner {
+  max-width: 32em;
+  margin: 0 auto;
+  padding: 0 2em;
 }
 
-.post__content a:hover,
-.post__content a:focus {
-  color: $primary-color;
+.post__content a {
+  border-bottom: 1px solid $primary-color;
+
+  &:hover,
+  &:focus {
+    color: $primary-color;
+  }
+
+  &:global(.anchor) {
+    border: none;
+
+    &:hover,
+    &:focus {
+      fill: $primary-color;
+    }
+  }
 }
 
 .post__content img,
@@ -25,4 +40,25 @@
   color: $color-blue-30;
   font-style: italic;
   font-weight: 400;
+}
+
+.post__info {
+  margin-top: 6em;
+  overflow: hidden;
+}
+
+.post__clear {
+  clear: both;
+}
+
+@media only screen and (max-width: 480px) {
+  .post__inner {
+    padding: 0 16px;
+  }
+
+  .post__content img,
+  .post__content :global(.gatsby-highlight) {
+    width: 100%;
+    margin-left: auto;
+  }
 }

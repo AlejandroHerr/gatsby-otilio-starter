@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
-const SimpleIcon = ({ children, className, style }) => (
+import styles from './SimpleIcon.module.scss';
+
+const SimpleIcon = ({ brand, className, style }) => (
   <svg
-    className={className}
-    style={{
-      fill: 'currentColor',
-      height: '1.5rem',
-      width: '1.5rem',
-      ...style,
-    }}
+    className={classnames(styles.simple_icon, styles[`simple_icon__${brand}`], className)}
+    style={{ ...style }}
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
   >
-    {children}
+    <path />
   </svg>
 );
 
@@ -23,7 +21,7 @@ SimpleIcon.defaultProps = {
 };
 
 SimpleIcon.propTypes = {
-  children: PropTypes.node.isRequired,
+  brand: PropTypes.string.isRequired,
   className: PropTypes.string,
   style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };

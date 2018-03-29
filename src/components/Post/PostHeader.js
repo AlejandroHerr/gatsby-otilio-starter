@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Link from 'gatsby-link';
 
-import ClockIcon from '../icons/ClockIcon';
+import ByteIcon from '../icons/ByteIcon';
 import CoverImage from '../CoverImage';
 
 import { imageSharp } from './propTypes';
@@ -25,7 +25,7 @@ const PostHeader = ({
         <span className={styles.post_header__body}>
           <Link className={styles.post_header__author} to="/">{author}</Link>
           {' | '}
-          <span><ClockIcon /> {timeToRead}</span>
+          <span><ByteIcon icon="clock" bold /> {timeToRead}</span>
           {' | '}
           <time dateTime={postDate.toISOString()}>{getDisplayDate(postDate)}</time>
         </span>

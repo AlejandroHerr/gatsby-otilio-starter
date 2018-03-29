@@ -12,40 +12,45 @@ const postNavPreview = ({ node }) => {
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
-  const BlogPost = path.resolve('./src/templates/BlogPost.js');
+  const PostTemplate = path.resolve('./src/templates/PostTemplate.js');
 
   return new Promise((resolve) => {
     resolve(graphql(`
-        {
-          site {
-            siteMetadata {
-              title
-              author
-            }
+      {
+        site {
+          siteMetadata {
+            title
+            author
           }
-          allMarkdownRemark(limit: 1000, sort: { fields: [frontmatter___date] }) {
-            edges {
-              node {
-                excerpt(pruneLength: 100)
-                frontmatter {
-                  path
-                  title
-                }
+        }
+        posts: allMarkdownRemark(
+          limit: 1000,
+          filter: { fileAbsolutePath: { regex: "/(posts)/.*.md$/" } },
+          sort: {fields: [frontmatter___date]}
+        ) {
+          edges {
+            node {
+              excerpt(pruneLength: 100)
+              frontmatter {
+                path
+                title
               }
             }
           }
         }
-      `));
+      }
+    `));
   })
     .then(result => (result.errors
       ? Promise.reject(result.errors)
       : result))
-    .then((result) => {
-      const posts = result.data.allMarkdownRemark.edges;
+    .then(({ data }) => {
+      console.log(data);
+      const { posts } = data;
 
-      posts.forEach((edge, idx, edges) => createPage({
-        path: edge.node.frontmatter.path,
-        component: BlogPost,
+      posts.edges.forEach(({ node }, idx, edges) => createPage({
+        path: node.frontmatter.path,
+        component: PostTemplate,
         context: {
           prev: (edges[idx - 1] && postNavPreview(edges[idx - 1])) || null,
           next: (edges[idx + 1] && postNavPreview(edges[idx + 1])) || null,

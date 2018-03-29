@@ -1,35 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
-const ByteIcon = ({ children, className, style }) => (
+import styles from './ByteIcon.module.scss';
+
+const ByteIcon = ({ bold, className, icon }) => (
   <svg
-    className={className}
-    style={{
-      width: '.75em',
-      height: '.75em',
-      fill: 'none',
-      stroke: 'currentColor',
-      strokeLinecap: 'round',
-      strokeLinejoin: 'round',
-      strokeWidth: '2',
-      ...style,
-    }}
+    className={classnames(
+      styles.byte_icon,
+      styles[`byte_icon__${icon}`],
+      { [styles.byte_icon__bold]: bold },
+      className,
+    )}
     viewBox="0 0 32 32"
     xmlns="http://www.w3.org/2000/svg"
   >
-    {children}
+    <path />
   </svg>
 );
 
 ByteIcon.defaultProps = {
+  bold: false,
   className: '',
-  style: {},
 };
 
 ByteIcon.propTypes = {
-  children: PropTypes.node.isRequired,
+  bold: PropTypes.bool,
   className: PropTypes.string,
-  style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  icon: PropTypes.string.isRequired,
 };
 
 export default ByteIcon;

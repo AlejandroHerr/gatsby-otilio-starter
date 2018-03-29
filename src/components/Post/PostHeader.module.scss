@@ -101,3 +101,9 @@
     );
   z-index: 8;
 }
+
+@media only screen and (max-width: 480px) {
+  .post_header__inner {
+    padding: 0 16px;
+  }
+}
