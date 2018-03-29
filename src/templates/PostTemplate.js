@@ -22,7 +22,7 @@ const PostTemplate = ({ data, pathContext }) => {
   return (
     <div>
       <Helmet title={`${post.frontmatter.title} | ${siteInfo.title}`}>
-        <meta property="og:url" content={siteInfo.url} />
+        <meta property="og:url" content={`${siteInfo.url}${post.frontmatter.path}`} />
         <meta property="og:title" content={socialSummary.frontmatter.title} />
         <meta property="og:description" content={socialSummary.description} />
         <meta property="og:type" content="article" />
