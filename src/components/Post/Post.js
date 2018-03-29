@@ -46,8 +46,8 @@ const Post = ({
               </ProgressControl>
             </section>
             <section className={styles.post__info}>
-              {tags && tags.length && (<PostTags tags={tags} />)}
               <PostShare path={path} url={url} />
+              {tags && tags.length && (<PostTags tags={tags} />)}
               <div className={styles.post__clear} />
               <PostAuthor author={author} />
               <div className="clear" />

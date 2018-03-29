@@ -13,7 +13,6 @@
   margin: .15em 0 .334em .15em;
   padding: 0;
   border-radius: 2px;
-  float: left;
   color: $color-white;
   font-size: .75em;
   line-height: 2em;
@@ -34,4 +33,16 @@
 
 .post_share__facebook {
   color: #3b5998;
+}
+
+@media only screen and (max-width: 640px) {
+  .post_share {
+    max-width: none;
+    float: none;
+    margin: 0 0 2em;
+  }
+  .post_share__button {
+    margin-left: 0;
+    margin-right: 0.667em;
+  }
 }
