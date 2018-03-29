@@ -5,7 +5,7 @@ import SimpleIcon from '../../icons/SimpleIcon';
 
 import styles from './PostShare.module.scss';
 
-const PostShare = ({ path, url }) => console.log('postshare', path, url, `${url}${path}`) || (
+const PostShare = ({ path, url }) => (
   <div className={styles.post_share}>
     <FacebookShareButton url={`${url}${path}`} className={styles.post_share__button}>
       <SimpleIcon brand="facebook" className={styles.post_share__facebook} />

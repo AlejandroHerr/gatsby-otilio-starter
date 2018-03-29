@@ -17,7 +17,6 @@ const PostTemplate = ({ data, pathContext }) => {
     },
     socialSummary,
   } = data;
-  console.log('post', post);
 
   return (
     <div>
