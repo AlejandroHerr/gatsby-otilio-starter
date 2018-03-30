@@ -45,7 +45,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       ? Promise.reject(result.errors)
       : result))
     .then(({ data }) => {
-      console.log(data);
       const { posts } = data;
 
       posts.edges.forEach(({ node }, idx, edges) => createPage({
