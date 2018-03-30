@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'production') {
   }
 }
 
-module.exports = class HTML extends React.Component {
+module.exports = {
   render() {
     let css;
     if (process.env.NODE_ENV === 'production') {
@@ -22,7 +22,6 @@ module.exports = class HTML extends React.Component {
       );
     }
 
-    // console.log(this.props.headComponents);
     return (
       <html {...this.props.htmlAttributes}>
         <head>
@@ -35,101 +34,17 @@ module.exports = class HTML extends React.Component {
           <meta name="google-site-verification" content="KDJIl1u1p0fYHcU-7bRK_yd6TbErCKzLlEbxjPqE0EU" />
           {css}
           {this.props.headComponents}
-          <style
-            id="loader-css"
-            dangerouslySetInnerHTML={{
- __html: `.spinner {
-  margin: auto auto;
-  width: 60px;
-  height: 60px;
-  text-align: center;
-  font-size: 10px;
-}
-
-.spinner > div {
-  background-color: #333;
-  height: 100%;
-  width: 7px;
-  display: inline-block;
-  margin:0 3px 0 0;
-  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
-  animation: sk-stretchdelay 1.2s infinite ease-in-out;
-}
-
-.spinner .rect2 {
-  -webkit-animation-delay: -1.1s;
-  animation-delay: -1.1s;
-}
-
-.spinner .rect3 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
-}
-
-.spinner .rect4 {
-  -webkit-animation-delay: -0.9s;
-  animation-delay: -0.9s;
-}
-
-.spinner .rect5 {
-  -webkit-animation-delay: -0.8s;
-  animation-delay: -0.8s;
-}
-
-@-webkit-keyframes sk-stretchdelay {
-  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
-  20% { -webkit-transform: scaleY(1.0) }
-}
-
-@keyframes sk-stretchdelay {
-  0%, 40%, 100% {
-    transform: scaleY(0.4);
-    -webkit-transform: scaleY(0.4);
-  }  20% {
-    transform: scaleY(1.0);
-    -webkit-transform: scaleY(1.0);
-  }
-}`,
-}}
-          />
-
         </head>
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}
-          <div
-            id="loader_wrapper"
-            style={{
-            height: '100vh',
-    position: 'absolute',
-    top: '0',
-    bottom: '0',
-    left: '0',
-    right: '0',
-}}
-          ><div id="loader" className="spinner">
-            <div className="rect1" />
-            <div className="rect2" />
-            <div className="rect3" />
-            <div className="rect4" />
-            <div className="rect5" />
-           </div>
-          </div>
           <div
             key="body"
             id="___gatsby"
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
-
-
           {this.props.postBodyComponents}
-          <script dangerouslySetInnerHTML={{
- __html: `
-          document.getElementById('loader_wrapper').remove()
-`,
-}}
-          />
         </body>
       </html>
     );
-  }
+  },
 };
