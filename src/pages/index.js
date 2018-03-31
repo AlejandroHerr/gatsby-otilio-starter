@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 
@@ -35,6 +36,10 @@ const BlogIndex = ({ data }) => (
       })}
   </div>
 );
+
+BlogIndex.propTypes = {
+  data: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
 
 export default BlogIndex;
 
