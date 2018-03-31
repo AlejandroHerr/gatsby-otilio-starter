@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import PostNavigationLink from './PostNavigationLink';
-import styles from './PostNavigation.module.scss';
+import NavigationLink from './NavigationLink';
 
-const PostNavigation = ({ next, prev }) => (
+import styles from './Post.module.scss';
+
+const Navigation = ({ next, prev }) => (
   <aside className={styles.post_navigation}>
     {next &&
-      <PostNavigationLink
+      <NavigationLink
         className={styles.post_navigation__next}
         icon="chevron_left"
         {...next}
       />
     }
     {prev &&
-      <PostNavigationLink
+      <NavigationLink
         className={styles.post_navigation__prev}
         icon="chevron_right"
         {...prev}
@@ -26,13 +27,13 @@ const PostNavigation = ({ next, prev }) => (
   </aside>
 );
 
-PostNavigation.defaultProps = {
+Navigation.defaultProps = {
   next: null,
   prev: null,
 };
 
 
-PostNavigation.propTypes = {
+Navigation.propTypes = {
   next: PropTypes.shape({
     excerpt: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
@@ -45,4 +46,4 @@ PostNavigation.propTypes = {
   }),
 };
 
-export default PostNavigation;
+export default Navigation;

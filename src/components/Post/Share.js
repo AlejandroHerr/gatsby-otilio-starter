@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FacebookShareButton } from 'react-share';
-import SimpleIcon from '../../icons/SimpleIcon';
+import SimpleIcon from '../icons/SimpleIcon';
 
-import styles from './PostShare.module.scss';
+import styles from './Post.module.scss';
 
-const PostShare = ({ path, url }) => (
+const Share = ({ path, url }) => (
   <div className={styles.post_share}>
     <FacebookShareButton url={`${url}${path}`} className={styles.post_share__button}>
       <SimpleIcon brand="facebook" className={styles.post_share__facebook} />
@@ -13,13 +13,13 @@ const PostShare = ({ path, url }) => (
   </div>
 );
 
-PostShare.defaultProps = {
+Share.defaultProps = {
   path: '',
 };
 
-PostShare.propTypes = {
+Share.propTypes = {
   path: PropTypes.string,
   url: PropTypes.string.isRequired,
 };
 
-export default PostShare;
+export default Share;

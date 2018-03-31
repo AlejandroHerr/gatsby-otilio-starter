@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
-import styles from './PostTags.module.scss';
+import styles from './Post.module.scss';
 
-const PostTag = ({ tag }) => (
+const Tag = ({ tag }) => (
   <Link className={styles.post_tags__tag} to={`/tags/${tag.toLowerCase()}`}>{tag}</Link>
 );
 
-PostTag.propTypes = {
+Tag.propTypes = {
   tag: PropTypes.string.isRequired,
 };
 
-export default PostTag;
+export default Tag;

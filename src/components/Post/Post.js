@@ -8,10 +8,10 @@ import Footer from '../Footer';
 import ProgressControl from '../ProgressControl';
 
 import PostHeader from './PostHeader';
-import PostTags from './PostTags';
-import PostShare from './PostShare';
-import PostAuthor from './PostAuthor';
-import PostNavigation from './PostNavigation';
+import Tags from './Tags';
+import Share from './Share';
+import Author from './Author';
+import Navigation from './Navigation';
 
 import styles from './Post.module.scss';
 
@@ -46,13 +46,13 @@ const Post = ({
               </ProgressControl>
             </section>
             <section className={styles.post__info}>
-              <PostShare path={path} url={url} />
-              {tags && tags.length && (<PostTags tags={tags} />)}
+              <Share path={path} url={url} />
+              {tags && tags.length && (<Tags tags={tags} />)}
               <div className={styles.post__clear} />
-              <PostAuthor author={author} />
+              <Author author={author} />
               <div className="clear" />
             </section>
-            <PostNavigation next={next} prev={prev} />
+            <Navigation next={next} prev={prev} />
           </div>
         </article>
       </main>
