@@ -6,7 +6,7 @@ import Link from 'gatsby-link';
 import ByteIcon from '../icons/ByteIcon';
 import CoverImage from '../CoverImage';
 
-import { imageSharp } from './propTypes';
+import { imageSharpSizesType } from '../../templates/Post.propTypes';
 
 import styles from './PostHeader.module.scss';
 
@@ -15,6 +15,7 @@ const getDisplayDate = date => date.toLocaleDateString('en-us', { day: 'numeric'
 const PostHeader = ({
   author, date, image, title, timeToRead,
 }) => {
+  console.log(image);
   const postDate = new Date(date);
   return (
     <header className={classnames(styles.post_header, { [styles['post_header--has_image']]: !!image })}>
@@ -49,7 +50,7 @@ PostHeader.defaultProps = {
 PostHeader.propTypes = {
   author: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  image: imageSharp,
+  image: imageSharpSizesType,
   title: PropTypes.string.isRequired,
   timeToRead: PropTypes.number.isRequired,
 };
