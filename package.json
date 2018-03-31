@@ -79,8 +79,8 @@
   },
   "scripts": {
     "dev": "yarn clean &&  gatsby develop",
-    "lint": "eslint --cache --ext .js,.jsx --ignore-pattern public . --format=node_modules/eslint-formatter-pretty .",
-    "lint:fix": "eslint --cache --ext .js,.jsx --ignore-pattern public . --fix",
+    "lint": "eslint --ext .js,.jsx --ignore-pattern public . --format=node_modules/eslint-formatter-pretty .",
+    "lint:fix": "eslint --ext .js,.jsx --ignore-pattern public . --fix",
     "test": "BABEL_DISABLE_CACHE=1 jest",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "develop": "yarn clean &&  gatsby develop",
