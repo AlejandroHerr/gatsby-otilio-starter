@@ -19,8 +19,8 @@ whitelist: &whitelist
     - .gitignore
     - package.json
     - yarn.lock
-    - babel-config.js
-    - babel-node.js
+    - gatsby-config.js
+    - gatsby-node.js
     - config.js
     - config.yml
 
