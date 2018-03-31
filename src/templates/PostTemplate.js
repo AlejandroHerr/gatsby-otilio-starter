@@ -4,7 +4,13 @@ import Helmet from 'react-helmet';
 
 import Post from '../components/Post';
 
-import { authorType, siteInfoType, postType, postPreviewType, socialSummaryType } from './Post.propTypes';
+import {
+  authorType,
+  siteInfoType,
+  postType,
+  postPreviewType,
+  socialSummaryType,
+} from '../propTypes/post';
 
 const PostTemplate = ({ data, pathContext }) => {
   const {

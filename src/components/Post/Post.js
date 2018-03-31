@@ -2,7 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { authorType, postPreviewType, postType, siteInfoType } from '../../templates/Post.propTypes';
+import {
+  authorType,
+  postPreviewType,
+  postType,
+  siteInfoType,
+} from '../../propTypes/post';
 
 import Footer from '../Footer';
 import ProgressControl from '../ProgressControl';

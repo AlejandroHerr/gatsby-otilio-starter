@@ -6,9 +6,9 @@ import Link from 'gatsby-link';
 import ByteIcon from '../icons/ByteIcon';
 import CoverImage from '../CoverImage';
 
-import { imageSharpSizesType } from '../../templates/Post.propTypes';
+import { imageSharpSizesType } from '../../propTypes/shared';
 
-import styles from './PostHeader.module.scss';
+import styles from './Post.module.scss';
 
 const getDisplayDate = date => date.toLocaleDateString('en-us', { day: 'numeric', month: 'short', year: 'numeric' });
 

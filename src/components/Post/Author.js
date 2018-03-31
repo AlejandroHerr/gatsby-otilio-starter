@@ -1,7 +1,7 @@
 import React from 'react';
 import Img from 'gatsby-image';
 
-import { authorType } from '../../templates/Post.propTypes';
+import { authorType } from '../../propTypes/post';
 
 import ByteIcon from '../icons/ByteIcon';
 
