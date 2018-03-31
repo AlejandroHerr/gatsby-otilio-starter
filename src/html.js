@@ -1,3 +1,9 @@
+/* eslint-disable
+  import/no-webpack-loader-syntax,
+  import/no-unresolved,
+  global-require,
+  react/prop-types
+*/
 import React from 'react';
 
 let stylesStr;
@@ -22,7 +28,7 @@ module.exports = (props) => {
   }
 
   return (
-    <html {...props.htmlAttributes}>
+    <html lang="en" {...props.htmlAttributes}>
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
