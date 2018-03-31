@@ -7,18 +7,20 @@ defaults: &defaults
 whitelist: &whitelist
   paths:
     - .git/
-    - examples/
-    - flow-typed/*
-    - lib/*
-    - node_modules/*
-    - src/*
-    - test/*
+    - data/
+    - posts/
+    - node_modules/
+    - src/
+    - tests/
     - .babelrc
     - .eslintignore
     - .eslintrc.js
     - .gitignore
     - package.json
     - yarn.lock
+    - babel-config.js
+    - babel-node.js
+    - config.js
 
 
 version: 2
@@ -57,6 +59,14 @@ jobs:
     - run:
         name: Test
         command: yarn test
+  build:
+    <<: *defaults
+    steps:
+    - attach_workspace:
+        at: ~/gatsby-otilio-starter
+    - run:
+        name: Build
+        command: yarn build
 workflows:
   version: 2
   build_and_test:
@@ -66,5 +76,8 @@ workflows:
           requires:
             - checkout
       - test:
+          requires:
+            - checkout
+      - build:
           requires:
             - checkout
