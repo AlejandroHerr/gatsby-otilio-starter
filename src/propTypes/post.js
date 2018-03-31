@@ -1,14 +1,5 @@
 import PropTypes from 'prop-types';
-
-export const imageSharpSizesType = PropTypes.shape({
-  aspectRatio: PropTypes.number.isRequired,
-  base64: PropTypes.string,
-  sizes: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
-  srcSet: PropTypes.string.isRequired,
-  srcSetWebp: PropTypes.string,
-  srcWebp: PropTypes.string,
-});
+import { imageSharpSizesType } from './shared';
 
 export const frontmatterType = PropTypes.shape({
   author: PropTypes.string.isRequired,
@@ -27,10 +18,6 @@ export const postType = PropTypes.shape({
   frontmatter: frontmatterType.isRequired,
   html: PropTypes.string.isRequired,
   timeToRead: PropTypes.number.isRequired,
-});
-
-export const childImageSharpType = PropTypes.shape({
-  sizes: imageSharpSizesType.isRequired,
 });
 
 export const authorType = PropTypes.shape({
