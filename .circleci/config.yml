@@ -52,6 +52,14 @@ jobs:
       - run:
           name: Eslint check
           command: yarn lint
+  stylelint:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/gatsby-otilio-starter
+      - run:
+          name: Stylelint check
+          command: yarn stylelint
   test:
     <<: *defaults
     steps:
@@ -74,6 +82,9 @@ workflows:
     jobs:
       - checkout
       - lint:
+          requires:
+            - checkout
+      - stylelint:
           requires:
             - checkout
       - test:
