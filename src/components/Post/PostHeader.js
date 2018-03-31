@@ -15,7 +15,6 @@ const getDisplayDate = date => date.toLocaleDateString('en-us', { day: 'numeric'
 const PostHeader = ({
   author, date, image, title, timeToRead,
 }) => {
-  console.log(image);
   const postDate = new Date(date);
   return (
     <header className={classnames(styles.post_header, { [styles['post_header--has_image']]: !!image })}>
