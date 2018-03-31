@@ -21,7 +21,7 @@ whitelist: &whitelist
     - babel-config.js
     - babel-node.js
     - config.js
-
+    - config.yml
 
 version: 2
 jobs:
