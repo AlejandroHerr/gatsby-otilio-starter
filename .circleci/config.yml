@@ -12,6 +12,7 @@ whitelist: &whitelist
     - node_modules/
     - src/
     - tests/
+    - static/
     - .babelrc
     - .eslintignore
     - .eslintrc.js
