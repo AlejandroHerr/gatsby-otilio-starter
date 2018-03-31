@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-
+import Footer from '../components/Footer';
 import '../global.scss';
 
 const Template = ({
@@ -12,6 +12,7 @@ const Template = ({
       <link rel="canonical" href={`${data.siteInfo.childDataJson.url}${location.pathname}`} />
     </Helmet>
     {children()}
+    <Footer />
   </div>
 );
 

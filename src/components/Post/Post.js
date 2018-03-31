@@ -9,7 +9,6 @@ import {
   siteInfoType,
 } from '../../propTypes/post';
 
-import Footer from '../Footer';
 import ProgressControl from '../ProgressControl';
 
 import PostHeader from './PostHeader';
@@ -61,7 +60,6 @@ const Post = ({
           </div>
         </article>
       </main>
-      <Footer />
     </div>
   );
 };
