@@ -20,7 +20,7 @@ const MainHeader = ({
           [styles['main_header__title--has_image']]: !!image,
         })}
       >
-        <a className={styles.main_header__title_link} href={`/url${url}`}>{title}</a>
+        <a className={styles.main_header__title_link} href={url}>{title}</a>
       </h1>
       <span
         className={classnames(styles.main_header__body, {

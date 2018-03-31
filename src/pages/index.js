@@ -3,18 +3,28 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 
+import { siteInfoType } from '../propTypes/index';
+
 import MainHeader from '../components/MainHeader';
 
-const Index = ({ data }) => (
-  <div>
-    <Helmet title="siteTitle Helmet" />
-    <MainHeader
-      image={data.cover.childImageSharp.sizes}
-      title="Misterious Lively Alejandro"
-      url=""
-      description="Yes. The title was randomly generated"
-    />
-    {data.allMarkdownRemark.edges.map((post) => {
+const Index = ({ data, ...props }) => {
+  console.log(data, props);
+  const {
+    siteInfo: {
+      childDataJson: siteInfo,
+    },
+  } = data;
+
+  return (
+    <div>
+      <Helmet title={siteInfo.title} />
+      <MainHeader
+        image={siteInfo.cover.childImageSharp.sizes}
+        title={siteInfo.title}
+        url={siteInfo.url}
+        description={siteInfo.description}
+      />
+      {data.allMarkdownRemark.edges.map((post) => {
         if (post.node.frontmatter.path !== '/404/') {
           const title = post.node.frontmatter.title || post.node.path;
           return (
@@ -34,11 +44,14 @@ const Index = ({ data }) => (
         }
         return (<div>Not Found!</div>);
       })}
-  </div>
-);
+    </div>
+  );
+};
 
 Index.propTypes = {
-  data: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  data: {
+    siteInfo: siteInfoType.isRequired,
+  },
 };
 
 export default Index;
@@ -47,15 +60,17 @@ export default Index;
 /* eslint-disable */
 export const pageQuery = graphql`
   query IndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    cover: file(relativePath: { eq: "cover.jpg" }) {
-      childImageSharp {
-        sizes(maxWidth: 2880) {
-          ...GatsbyImageSharpSizes_withWebp
+    siteInfo: file(relativePath: { eq: "siteInfo.json" }) {
+      childDataJson {
+        url,
+        title,
+        description,
+        cover {
+          childImageSharp {
+            sizes(maxWidth: 2880) {
+              ...GatsbyImageSharpSizes_withWebp
+            }
+          }
         }
       }
     }
@@ -66,8 +81,6 @@ export const pageQuery = graphql`
           frontmatter {
             path
             date(formatString: "DD MMMM, YYYY")
-          }
-          frontmatter {
             title
           }
         }
