@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Link from 'gatsby-link';
 
-import ByteIcon from '../../icons/ByteIcon';
+import ByteIcon from '../icons/ByteIcon';
 
-import styles from './PostNavigation.module.scss';
+import styles from './Post.module.scss';
 
-const PostNavigationLink = ({
+const NavigationLink = ({
   className, icon, excerpt, path, title,
 }) => (
   <Link
@@ -24,7 +24,7 @@ const PostNavigationLink = ({
   </Link>
 );
 
-PostNavigationLink.propTypes = {
+NavigationLink.propTypes = {
   className: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
@@ -32,4 +32,4 @@ PostNavigationLink.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default PostNavigationLink;
+export default NavigationLink;

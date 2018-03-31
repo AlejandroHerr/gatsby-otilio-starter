@@ -1,14 +1,15 @@
 import React from 'react';
 import Img from 'gatsby-image';
 
-import { authorType } from '../../../templates/Post.propTypes';
+import { authorType } from '../../templates/Post.propTypes';
 
-import ByteIcon from '../../icons/ByteIcon';
-import SimpleIcon from '../../icons/SimpleIcon';
+import ByteIcon from '../icons/ByteIcon';
 
-import styles from './PostAuthor.module.scss';
+import SocialLink from './SocialLink';
 
-const PostAuthor = ({ author }) => (
+import styles from './Post.module.scss';
+
+const Author = ({ author }) => (
   <aside className={styles.post_author}>
     <figure className={`${styles.post_author__avatar} ${styles.avatar}`}>
       <Img sizes={author.avatar.childImageSharp.sizes} />
@@ -20,16 +21,14 @@ const PostAuthor = ({ author }) => (
         <ByteIcon className={styles.post_author__location_icon} icon="location" /> {author.location}
       </span>
       {author.social.map(({ service, url }) => (
-        <a key={service} className={styles.post_author__social} href={url}>
-          <SimpleIcon brand={service.toLowerCase()} className={styles.post_author__social_icon} />
-        </a>
+        <SocialLink key={service} service={service} url={url} />
       ))}
     </div>
   </aside>
 );
 
-PostAuthor.propTypes = {
+Author.propTypes = {
   author: authorType.isRequired,
 };
 
-export default PostAuthor;
+export default Author;

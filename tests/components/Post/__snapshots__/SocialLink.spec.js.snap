@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post SocialLink should match the exact snapshot 1`] = `
+<a
+  className="post_author__social"
+  href="test:url"
+>
+  <svg
+    className="simple_icon simple_icon__test_service post_author__social_icon"
+    style={Object {}}
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path />
+  </svg>
+</a>
+`;

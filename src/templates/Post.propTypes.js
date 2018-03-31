@@ -16,7 +16,7 @@ export const frontmatterType = PropTypes.shape({
     childImageSharp: PropTypes.shape({
       sizes: imageSharpSizesType.isRequired,
     }).isRequired,
-  }).isRequired,
+  }),
   date: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
   path: PropTypes.string.isRequired,
@@ -70,6 +70,6 @@ export const socialSummaryType = PropTypes.shape({
           src: PropTypes.string.isRequired,
         }).isRequired,
       }).isRequired,
-    }).isRequired,
+    }),
   }),
 });

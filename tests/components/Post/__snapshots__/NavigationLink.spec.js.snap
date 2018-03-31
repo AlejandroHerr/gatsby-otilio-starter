@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post NavigationLink should match the exact snapshot 1`] = `
+<a
+  className="post_navigation__link testClassName"
+  to="testPath"
+>
+  <section
+    className="post_navigation__teaser"
+  >
+    <div
+      className="post_navigation__icon"
+    >
+      <svg
+        className="byte_icon byte_icon__testIcon"
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path />
+      </svg>
+    </div>
+    <h2
+      className="post_navigation__title"
+    >
+      testTitle
+    </h2>
+    <p
+      className="post_navigation__excerpt"
+    >
+      testExcerpt
+    </p>
+  </section>
+</a>
+`;
