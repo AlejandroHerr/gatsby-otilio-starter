@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post Tags should match the exact snapshot 1`] = `
+<aside
+  className="post_tags"
+>
+  <a
+    className="post_tags__tag"
+    to="/tags/test_1"
+  >
+    test_1
+  </a>
+  <a
+    className="post_tags__tag"
+    to="/tags/test_2"
+  >
+    test_2
+  </a>
+</aside>
+`;
