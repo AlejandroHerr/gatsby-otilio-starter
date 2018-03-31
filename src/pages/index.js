@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 
 import MainHeader from '../components/MainHeader';
 
-const BlogIndex = ({ data }) => (
+const Index = ({ data }) => (
   <div>
     <Helmet title="siteTitle Helmet" />
     <MainHeader
@@ -37,11 +37,11 @@ const BlogIndex = ({ data }) => (
   </div>
 );
 
-BlogIndex.propTypes = {
+Index.propTypes = {
   data: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
-export default BlogIndex;
+export default Index;
 
 
 /* eslint-disable */
