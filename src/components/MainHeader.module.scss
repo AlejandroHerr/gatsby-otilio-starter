@@ -1,0 +1,56 @@
+@import "../colors";
+@import "./CoverHeader";
+//1px 1px 0 rgba(20,20,20,0.5)
+
+.main_header {
+	@extend %cover_header;
+	text-align: center;
+	padding: 6em 0;
+}
+
+.main_header--has_image {
+	@extend %cover_header--has_image;
+	padding: 9em 0 10em;
+}
+
+.main_header__inner {
+	@extend %cover_header__inner;
+}
+
+.main_header__title {
+	@extend %cover_header__title;
+	font-size: 3em;
+	text-decoration: none;
+	display: block;
+a {
+	text-decoration: none;
+	font-weight: inherit;
+	color: inherit;
+}
+}
+
+.main_header__body {
+	@extend %cover_header__body;
+	font-size: 1.5em;
+}
+
+.main_header__title--has_image,
+.main_header__body--has_image {
+	color: $color-white;
+}
+
+.main_header__image {
+	@extend %cover_header__image;
+	img {
+    margin: 0;
+  }
+}
+
+.main_header__image_shadow {
+	@extend %cover_header__image_shadow;
+	height: 6em;
+}
+
+.main_header__after {
+	@extend %cover_header__after;
+}

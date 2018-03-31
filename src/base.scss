@@ -1,0 +1,373 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: $color-blue-30;
+  font: 400 2em / 1.5em $body-font-familiy;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+html.menu-active,
+.menu-active body {
+  overflow-y: hidden;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: $header-font-familiy;
+  transition: all ease-out .2s;
+}
+
+a {
+  color: $color-blue-15;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all ease-out .2s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-black;
+  font-family: $header-font-familiy;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  margin: 2em 0 -.5em;
+  font-size: 2em;
+  line-height: 1em;
+  text-indent: -1px;
+}
+
+h2 {
+  margin: 2.286em 0 -.571em;
+  font-size: 1.75em;
+  line-height: 1.111em;
+  text-indent: -1px;
+}
+
+h3 {
+  margin: 2em 0 -.667em;
+  font-size: 1.5em;
+  line-height: 1.334em;
+}
+
+h4 {
+  margin: 2.4em 0 -.8em;
+  font-size: 1.25em;
+  line-height: 1.2em;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  font-weight: inherit;
+}
+
+a:hover,
+a:focus {
+  color: $color-black;
+}
+
+p {
+  margin: 2em 0;
+}
+
+ul,
+ol {
+  margin: 2em 0;
+  padding-left: 30px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  position: relative;
+}
+
+li > p {
+  margin: 0;
+  padding: 0;
+}
+
+ul > li::before,
+ol > li::before {
+  position: absolute;
+  width: 1.5em;
+  margin-left: -2em;
+  color: $color-black;
+  font-family: $header-font-familiy;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.5em;
+  text-align: right;
+}
+
+ul > li::before {
+  content: '*';
+  margin-top: .2em;
+}
+
+ol {
+  list-style-type: none;
+  counter-reset: item;
+}
+
+ol > li::before {
+  content: counter(item) ". " !important;
+  margin-top: -.17em;
+  counter-increment: item;
+}
+
+ol ol,
+ul ul,
+ul ol,
+ol ul {
+  margin: 5px 0 15px;
+  padding-left: 30px;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  margin: 2em 0;
+  padding: 0;
+  border: 0;
+  background: $color-gray-90;
+}
+
+blockquote {
+  margin: 2em auto;
+  padding: 1em;
+  box-sizing: border-box;
+  border-left: .25em solid $color-gray-90;
+  background: $color-gray-98;
+  color: $color-blue-30;
+  font-style: italic;
+  font-weight: 400;
+}
+
+blockquote p {
+  margin: 1em auto;
+}
+
+.footnotes p {
+  display: inline;
+}
+
+blockquote p:first-child {
+  margin-top: 0;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+em,
+i {
+  color: $color-blue-15;
+  font-style: italic;
+}
+
+strong,
+b {
+  color: $color-blue-15;
+  font-weight: 700;
+}
+
+small {
+  color: $color-blue-30;
+  font-size: .9em;
+}
+
+dl {
+  margin: 2em 0;
+  padding-left: 30px;
+}
+
+dl dt {
+  margin-bottom: .334em;
+  color: $color-black;
+  font-family: $header-font-familiy;
+  font-size: .75em;
+  font-weight: 700;
+  line-height: 1.25em;
+}
+
+dl dt::before {
+  content: '';
+  position: absolute;
+  width: 1em;
+  height: 1px;
+  margin-top: .5em;
+  margin-left: -30px;
+  background: $color-blue-80;
+}
+
+dl dd {
+  margin-bottom: 1em;
+  margin-left: 0;
+}
+
+mark {
+  background-color: $color-yellow-100;
+}
+
+/**
+  Code
+**/
+
+code,
+tt {
+  position: relative;
+  margin: 0;
+  padding: .2em .3em;
+  border: 1px solid $color-gray-90;
+  background: $color-gray-98;
+  font-family: $mono-font-familiy;
+  font-size: .75em;
+  white-space: pre;
+  //top: -2px;
+}
+
+pre {
+  position: relative;
+  margin: 2em auto;
+  padding: 1em;
+  border: 1px solid $color-gray-90;
+  background: $color-gray-98;
+  font-family: $mono-font-familiy;
+  white-space: pre;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+pre code,
+pre tt {
+  position: static;
+  top: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  // font-size: 1em;
+  line-height: 2em;
+  white-space: pre;
+  overflow: scroll;
+  vertical-align: inherit;
+}
+
+kbd {
+  display: inline-block;
+  margin-bottom: .5em;
+  padding: 1px 8px;
+  border: $color-gray-90 1px solid;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 1px 0 0 $color-white inset;
+  background: $color-gray-98;
+  color: $color-blue-30;
+  font-size: .9em;
+  font-weight: bold;
+  text-shadow: $color-white 0 1px 0;
+}
+// END CODE
+
+table {
+  width: 100%;
+  max-width: 100%;
+  margin: 2em 0;
+  border: 1px solid $color-gray-90;
+  background-color: transparent;
+}
+
+table th,
+table td {
+  position: relative;
+  padding: .5em;
+  border: 1px solid $color-gray-90;
+  line-height: .95em;
+  text-align: left;
+}
+
+table th {
+  padding: .667em;
+  color: $color-black;
+  font-family: $header-font-familiy;
+  font-size: .75em;
+  font-weight: 500;
+  line-height: 1.25em;
+}
+
+table td::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 100%;
+  height: 100%;
+  padding: 1px;
+  background: $color-gray-98;
+  z-index: -1;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 2.5em auto;
+}
+
+.fluid-width-video-wrapper {
+  margin: 2.5em auto;
+}
+
+.clear {
+  clear: both;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: .2;
+  }
+
+  100% {
+    opacity: .9;
+  }
+}
+
+.footnote-ref::before {
+  content: '[';
+}
+
+.footnote-ref::after {
+  content: ']';
+}
+
+@media only screen and (max-width: 640px) {
+  html {
+    font-size: 50%;
+  }
+}

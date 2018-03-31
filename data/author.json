@@ -1,0 +1,13 @@
+{
+  "name": "alejandroHerr",
+  "location": "Warszawa",
+  "avatar": "avatar.png",
+  "about": "I write javascript, and shoot film. Sometimes I bake raspberry pies. Currently living in Warsaw, because Barcelona is cool, but Joy Division never wrote a song with that name.",
+  "social": [{
+    "service": "Github",
+    "url": "https://github.com/AlejandroHerr"
+  },{
+    "service": "LinkedIn",
+    "url": "http://www.linkedin.com/in/alejandroherr"
+  }]
+}
