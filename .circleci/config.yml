@@ -3,10 +3,8 @@ defaults: &defaults
   working_directory: ~/gatsby-otilio-starter
   docker:
     - image: circleci/node:8.9-stretch
-
-machine:
-  timezone:
-    Europe/Warsaw
+  environment:
+      TZ: "/usr/share/zoneinfo/Europe/Warsaw"
 
 whitelist: &whitelist
   paths:
