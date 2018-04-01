@@ -64,7 +64,7 @@ jobs:
           at: ~/gatsby-otilio-starter
       - run:
           name: Stylelint check
-          command: yarn stylelint
+          command: yarn lint:styles
   test:
     <<: *defaults
     steps:
