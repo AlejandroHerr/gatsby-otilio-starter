@@ -73,7 +73,6 @@ exports[`PostsIndex Article should match the exact snapshot with tags 1`] = `
         className="posts_index_article__meta"
       >
         testAuthor
-         on test1, test2
          | 
         <time
           dateTime="2018-04-30T22:00:00.000Z"

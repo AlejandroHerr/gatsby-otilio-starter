@@ -2,14 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import { siteInfoType } from '../propTypes/index';
+import { articleType, siteInfoType } from '../propTypes/index';
 
 import MainHeader from '../components/MainHeader';
 import Article from '../components/PostsIndex/Article';
 
-const Index = ({ data, ...props }) => {
-  console.log(data, props);
+const Index = ({ data }) => {
   const {
+    posts: {
+      edges: posts,
+    },
     siteInfo: {
       childDataJson: siteInfo,
     },
@@ -24,21 +26,26 @@ const Index = ({ data, ...props }) => {
         url={siteInfo.url}
         description={siteInfo.description}
       />
-      {data.posts.edges.map((post) => {
-        if (post.node.frontmatter.path !== '/404/') {
-          return (
-            <Article post={post.node.frontmatter} excerpt={post.node.excerpt} />
-          );
-        }
-        return (<div>Not Found!</div>);
-      })}
+      {posts.map(({ node: article }) => (
+        <Article
+          key={article.frontmatter.path}
+          article={article}
+        />
+      ))}
     </div>
   );
 };
 
 Index.propTypes = {
   data: PropTypes.shape({
-    siteInfo: siteInfoType.isRequired,
+    posts: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.shape({
+        node: articleType.isRequired,
+      })).isRequired,
+    }).isRequired,
+    siteInfo: PropTypes.shape({
+      childDataJson: siteInfoType.isRequired,
+    }).isRequired,
   }).isRequired,
 };
 

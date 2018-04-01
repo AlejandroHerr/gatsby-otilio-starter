@@ -2,14 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
+import { articleType } from '../../propTypes/index';
+
 import styles from './PostsIndex.module.scss';
 
 const getDisplayDate = date => date.toLocaleDateString('en-us', { day: 'numeric', month: 'short', year: 'numeric' });
 
-const Article = ({ excerpt, post }) => {
+const Article = ({ article }) => {
   const {
-    author, date, title, path, tags,
-  } = post;
+    excerpt,
+    frontmatter: {
+      author, date, title, path, tags,
+    },
+  } = article;
+
   const postDate = new Date(date);
 
   return (
@@ -43,14 +49,7 @@ const Article = ({ excerpt, post }) => {
 };
 
 Article.propTypes = {
-  excerpt: PropTypes.string.isRequired,
-  post: PropTypes.shape({
-    author: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string),
-    title: PropTypes.string.isRequired,
-  }).isRequired,
+  article: articleType.isRequired,
 };
 
 export default Article;
