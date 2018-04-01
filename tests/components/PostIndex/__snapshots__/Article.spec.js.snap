@@ -26,9 +26,9 @@ exports[`PostsIndex Article should match the exact snapshot 1`] = `
         testAuthor
          | 
         <time
-          dateTime="2018-04-30T22:00:00.000Z"
+          dateTime="2018-04-30T05:00:00.000Z"
         >
-          May 1, 2018
+          Apr 30, 2018
         </time>
       </span>
       <div
@@ -75,9 +75,9 @@ exports[`PostsIndex Article should match the exact snapshot with tags 1`] = `
         testAuthor
          | 
         <time
-          dateTime="2018-04-30T22:00:00.000Z"
+          dateTime="2018-04-30T05:00:00.000Z"
         >
-          May 1, 2018
+          Apr 30, 2018
         </time>
       </span>
       <div
