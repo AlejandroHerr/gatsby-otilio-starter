@@ -7,7 +7,7 @@ const defaultArticle = {
   excerpt: 'Excerpt test',
   frontmatter: {
     author: 'testAuthor',
-    date: '2018-04-30T22:00:00.000Z',
+    date: '2018-04-30T05:00:00.000Z',
     path: 'testPath',
     title: 'testTitle',
   },
