@@ -16,6 +16,7 @@ whitelist: &whitelist
     - .babelrc
     - .eslintignore
     - .eslintrc.js
+    - .stylelintrc
     - .gitignore
     - package.json
     - yarn.lock
