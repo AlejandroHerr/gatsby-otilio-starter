@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 
 import { siteInfoType } from '../propTypes/index';
 
 import MainHeader from '../components/MainHeader';
+import Article from '../components/PostsIndex/Article';
 
 const Index = ({ data, ...props }) => {
   console.log(data, props);
@@ -24,22 +24,10 @@ const Index = ({ data, ...props }) => {
         url={siteInfo.url}
         description={siteInfo.description}
       />
-      {data.allMarkdownRemark.edges.map((post) => {
+      {data.posts.edges.map((post) => {
         if (post.node.frontmatter.path !== '/404/') {
-          const title = post.node.frontmatter.title || post.node.path;
           return (
-            <div key={post.node.frontmatter.path}>
-              <h3
-                style={{
-                }}
-              >
-                <Link style={{ boxShadow: 'none' }} to={post.node.frontmatter.path}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{post.node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
-            </div>
+            <Article post={post.node.frontmatter} excerpt={post.node.excerpt} />
           );
         }
         return (<div>Not Found!</div>);
@@ -49,9 +37,9 @@ const Index = ({ data, ...props }) => {
 };
 
 Index.propTypes = {
-  data: {
+  data: PropTypes.shape({
     siteInfo: siteInfoType.isRequired,
-  },
+  }).isRequired,
 };
 
 export default Index;
@@ -74,14 +62,16 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    posts: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 300)
           frontmatter {
+            author
             path
             date(formatString: "DD MMMM, YYYY")
             title
+            tags
           }
         }
       }
