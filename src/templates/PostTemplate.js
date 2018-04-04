@@ -67,7 +67,7 @@ PostTemplate.propTypes = {
 export default PostTemplate;
 
 /* eslint-disable */
-export const poatQuery = graphql`
+export const postQuery = graphql`
   query postByPath($slug: String!) {
     author: file(relativePath: { eq: "author.json" }) {
       childDataJson {

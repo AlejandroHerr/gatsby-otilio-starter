@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import { siteInfoType } from '../propTypes/index';
+import { siteInfoType } from '../propTypes/postsIndex';
 
 import MainHeader from '../components/MainHeader';
 

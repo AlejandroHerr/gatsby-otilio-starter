@@ -2,16 +2,19 @@ import PropTypes from 'prop-types';
 import { imageSharpSizesType } from './shared';
 
 export const articleType = PropTypes.shape({
+  author: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
-  fields: PropTypes.shape({
-    slug: PropTypes.string.isRequired,
-  }).isRequired,
-  frontmatter: PropTypes.shape({
-    author: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string),
-    title: PropTypes.string.isRequired,
-  }).isRequired,
+  slug: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string.isRequired,
+});
+
+export const pathContextType = PropTypes.shape({
+  group: PropTypes.arrayOf(articleType.isRequired).isRequired,
+  index: PropTypes.number.isRequired,
+  pageCount: PropTypes.number.isRequired,
+  pathPrefix: PropTypes.string.isRequired,
 });
 
 export const siteInfoType = PropTypes.shape({

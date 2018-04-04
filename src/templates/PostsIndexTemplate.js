@@ -2,20 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import { articleType, siteInfoType } from '../propTypes/index';
+import { pathContextType, siteInfoType } from '../propTypes/postsIndex';
 
 import MainHeader from '../components/MainHeader';
 import Article from '../components/PostsIndex/Article';
+import Pagination from '../components/PostsIndex/Pagination';
 
-const Index = ({ data }) => {
+const PostsIndexTemplate = ({ data, pathContext }) => {
   const {
-    posts: {
-      edges: posts,
-    },
     siteInfo: {
       childDataJson: siteInfo,
     },
   } = data;
+
+  const {
+    group: posts,
+    index,
+    pageCount,
+    pathPrefix,
+  } = pathContext;
 
   return (
     <div>
@@ -26,30 +31,29 @@ const Index = ({ data }) => {
         url={siteInfo.url}
         description={siteInfo.description}
       />
-      {posts.map(({ node: article }) => (
-        <Article
-          key={article.frontmatter.path}
-          article={article}
-        />
-      ))}
+      <main role="main">
+        {posts.map(article => (
+          <Article
+            key={article.slug}
+            article={article}
+          />
+        ))}
+        <Pagination page={index} pageCount={pageCount} pathPrefix={pathPrefix} />
+      </main>
     </div>
   );
 };
 
-Index.propTypes = {
+PostsIndexTemplate.propTypes = {
   data: PropTypes.shape({
-    posts: PropTypes.shape({
-      edges: PropTypes.arrayOf(PropTypes.shape({
-        node: articleType.isRequired,
-      })).isRequired,
-    }).isRequired,
     siteInfo: PropTypes.shape({
       childDataJson: siteInfoType.isRequired,
     }).isRequired,
   }).isRequired,
+  pathContext: pathContextType.isRequired,
 };
 
-export default Index;
+export default PostsIndexTemplate;
 
 
 /* eslint-disable */
@@ -65,23 +69,6 @@ export const pageQuery = graphql`
             sizes(maxWidth: 2880) {
               ...GatsbyImageSharpSizes_withWebp
             }
-          }
-        }
-      }
-    }
-    posts: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt(pruneLength: 300)
-          frontmatter {
-            author
-            path
-            date(formatString: "DD MMMM, YYYY")
-            title
-            tags
-          }
-          fields {
-            slug
           }
         }
       }

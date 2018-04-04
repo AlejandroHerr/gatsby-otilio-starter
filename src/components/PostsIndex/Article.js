@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
-import { articleType } from '../../propTypes/index';
+import { articleType } from '../../propTypes/postsIndex';
 
 import styles from './PostsIndex.module.scss';
 
@@ -9,13 +9,12 @@ const getDisplayDate = date => date.toLocaleDateString('en-us', { day: 'numeric'
 
 const Article = ({ article }) => {
   const {
+    author,
+    date,
     excerpt,
-    fields: {
-      slug,
-    },
-    frontmatter: {
-      author, date, title, tags,
-    },
+    slug,
+    tags,
+    title,
   } = article;
 
   const postDate = new Date(date);

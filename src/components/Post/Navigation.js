@@ -19,7 +19,6 @@ const Navigation = ({ next, prev }) => (
         className={styles.post_navigation__prev}
         icon="chevron_right"
         {...prev}
-
       />
     }
     <div className={styles.post_navigation__clear} />

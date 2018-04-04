@@ -1,8 +1,9 @@
 const path = require('path');
 const slugify = require('slug');
+const createPaginatedPages = require('gatsby-paginate');
 
 const postNavPreview = ({ node }) => {
-  const { excerpt, fields, frontmatter } = node;
+  const { previewExcerpt: excerpt, fields, frontmatter } = node;
 
   return {
     excerpt,
@@ -31,12 +32,16 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         ) {
           edges {
             node {
-              excerpt(pruneLength: 100)
+              excerpt(pruneLength: 300)
+              previewExcerpt: excerpt(pruneLength: 100)
               fields {
                 slug
               }
               frontmatter {
+                author
+                date(formatString: "DD MMMM, YYYY")
                 title
+                tags
               }
             }
           }
@@ -49,6 +54,26 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       : result))
     .then(({ data }) => {
       const { posts } = data;
+
+      const postsIndex = posts.edges.map(({ node }) => {
+        const { excerpt, fields, frontmatter } = node;
+
+        return {
+          excerpt,
+          slug: fields.slug,
+          ...frontmatter,
+        };
+      });
+
+      createPaginatedPages({
+        edges: postsIndex,
+        createPage,
+        pageTemplate: 'src/templates/PostsIndexTemplate.js',
+        pageLength: 5, // This is optional and defaults to 10 if not used
+        pathPrefix: 'page',
+        buildPath: (index, pathPrefix) => (index > 1 ? `${pathPrefix}/${index}` : '/'), // This is optional and this is the default
+
+      });
 
       posts.edges.forEach(({ node }, idx, edges) => createPage({
         path: node.fields.slug,
