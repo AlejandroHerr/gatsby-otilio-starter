@@ -1,11 +1,12 @@
 const path = require('path');
+const slugify = require('slug');
 
 const postNavPreview = ({ node }) => {
-  const { excerpt, frontmatter } = node;
+  const { excerpt, fields, frontmatter } = node;
 
   return {
     excerpt,
-    path: frontmatter.path,
+    path: fields.slug,
     title: frontmatter.title,
   };
 };
@@ -31,8 +32,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           edges {
             node {
               excerpt(pruneLength: 100)
+              fields {
+                slug
+              }
               frontmatter {
-                path
                 title
               }
             }
@@ -48,12 +51,38 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       const { posts } = data;
 
       posts.edges.forEach(({ node }, idx, edges) => createPage({
-        path: node.frontmatter.path,
+        path: node.fields.slug,
         component: PostTemplate,
         context: {
           prev: (edges[idx - 1] && postNavPreview(edges[idx - 1])) || null,
           next: (edges[idx + 1] && postNavPreview(edges[idx + 1])) || null,
+          slug: node.fields.slug,
         },
       }));
     });
+};
+
+const createSlug = (date, title) => {
+  const year = date.getUTCFullYear();
+  const month = date.getUTCMonth() + 1;
+  const day = date.getUTCDate();
+
+  const datePart = `${year}-${month < 10 ? `0${month}` : month}-${day < 10 ? `0${day}` : day}`;
+  const titlePart = slugify(title);
+
+  return `/${datePart}/${titlePart}/`;
+};
+
+exports.onCreateNode = ({ node, boundActionCreators }) => {
+  const { createNodeField } = boundActionCreators;
+  if (node.internal.type === 'MarkdownRemark') {
+    const { date, title } = node.frontmatter;
+    const slug = createSlug(new Date(date), title);
+
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    });
+  }
 };

@@ -10,7 +10,6 @@ export const frontmatterType = PropTypes.shape({
   }),
   date: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
-  path: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 });
 
@@ -18,6 +17,9 @@ export const postType = PropTypes.shape({
   frontmatter: frontmatterType.isRequired,
   html: PropTypes.string.isRequired,
   timeToRead: PropTypes.number.isRequired,
+  fields: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+  }).isRequired,
 });
 
 export const authorType = PropTypes.shape({
@@ -48,6 +50,9 @@ export const siteInfoType = PropTypes.shape({
 
 export const socialSummaryType = PropTypes.shape({
   description: PropTypes.string.isRequired,
+  fields: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+  }).isRequired,
   frontmatter: PropTypes.shape({
     title: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,

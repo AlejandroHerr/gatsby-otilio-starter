@@ -10,8 +10,11 @@ const getDisplayDate = date => date.toLocaleDateString('en-us', { day: 'numeric'
 const Article = ({ article }) => {
   const {
     excerpt,
+    fields: {
+      slug,
+    },
     frontmatter: {
-      author, date, title, path, tags,
+      author, date, title, tags,
     },
   } = article;
 
@@ -24,7 +27,7 @@ const Article = ({ article }) => {
           <h2 className={styles.posts_index_article__title}>
             <Link
               className={styles.posts_index_article__title__link}
-              to={path}
+              to={slug}
             >
               {title
               }

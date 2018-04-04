@@ -23,9 +23,11 @@ const Post = ({
   author, navigation, post, siteInfo,
 }) => {
   const { next, prev } = navigation;
-
   const {
-    author: postAuthor, title, cover, tags, date, path,
+    slug: path,
+  } = post.fields;
+  const {
+    author: postAuthor, title, cover, tags, date,
   } = post.frontmatter;
 
   const { url } = siteInfo;

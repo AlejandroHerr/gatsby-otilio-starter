@@ -80,6 +80,9 @@ export const pageQuery = graphql`
             title
             tags
           }
+          fields {
+            slug
+          }
         }
       }
     }

@@ -27,7 +27,7 @@ const PostTemplate = ({ data, pathContext }) => {
   return (
     <div>
       <Helmet title={`${post.frontmatter.title} | ${siteInfo.title}`}>
-        <meta property="og:url" content={`${siteInfo.url}${post.frontmatter.path}`} />
+        <meta property="og:url" content={`${siteInfo.url}${post.fields.slug}`} />
         <meta property="og:title" content={socialSummary.frontmatter.title} />
         <meta property="og:description" content={socialSummary.description} />
         <meta property="og:type" content="article" />
@@ -68,7 +68,7 @@ export default PostTemplate;
 
 /* eslint-disable */
 export const poatQuery = graphql`
-  query postByPath($path: String!) {
+  query postByPath($slug: String!) {
     author: file(relativePath: { eq: "author.json" }) {
       childDataJson {
         name
@@ -87,19 +87,21 @@ export const poatQuery = graphql`
         }
       }
     }
-    post: markdownRemark(frontmatter: { path: { eq: $path } }) {
+    post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
       timeToRead
+      fields {
+        slug
+      }
       frontmatter {
         author
         title
         date
         tags
-        path
         cover {
           childImageSharp {
-            sizes(maxWidth: 1440) {
+            sizes(maxWidth: 2880) {
               ...GatsbyImageSharpSizes_withWebp
             }
           }
@@ -112,11 +114,13 @@ export const poatQuery = graphql`
         title,
       }
     }
-    socialSummary: markdownRemark(frontmatter: { path: { eq: $path } }) {
+    socialSummary: markdownRemark(fields: { slug: { eq: $slug } }) {
       description: excerpt
+      fields {
+        slug
+      }
       frontmatter {
         title
-        path
         image: cover {
           childImageSharp {
             resolutions(width: 1200, height: 620) {
