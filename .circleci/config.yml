@@ -13,6 +13,8 @@ whitelist: &whitelist
     - .git/
     - data/
     - posts/
+    - flow-typed/
+    - internals/
     - node_modules/
     - src/
     - tests/
@@ -42,6 +44,9 @@ jobs:
       - run:
           name: Install Dependencies
           command: yarn install
+      - run:
+          name: Flow Typed
+          command: yarn flow:typed
       - save_cache:
           paths:
             - node_modules
@@ -57,6 +62,17 @@ jobs:
       - run:
           name: Eslint check
           command: yarn lint
+  flow:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/gatsby-otilio-starter
+      - run:
+          name: Flow check
+          command: yarn flow
+      - run:
+          name: Flow coverage
+          command: Flow coverage
   stylelint:
     <<: *defaults
     steps:
@@ -89,6 +105,9 @@ workflows:
       - lint:
           requires:
             - checkout
+      - flow:
+          requires:
+            - lint
       - stylelint:
           requires:
             - checkout
