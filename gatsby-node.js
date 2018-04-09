@@ -28,7 +28,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         posts: allMarkdownRemark(
           limit: 1000,
           filter: { fileAbsolutePath: { regex: "/(posts)/.*.md$/" } },
-          sort: {fields: [frontmatter___date]}
+          sort: {fields: [frontmatter___date], order: DESC}
         ) {
           edges {
             node {
@@ -79,8 +79,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         path: node.fields.slug,
         component: PostTemplate,
         context: {
-          prev: (edges[idx - 1] && postNavPreview(edges[idx - 1])) || null,
-          next: (edges[idx + 1] && postNavPreview(edges[idx + 1])) || null,
+          next: (edges[idx - 1] && postNavPreview(edges[idx - 1])) || null,
+          prev: (edges[idx + 1] && postNavPreview(edges[idx + 1])) || null,
           slug: node.fields.slug,
         },
       }));
