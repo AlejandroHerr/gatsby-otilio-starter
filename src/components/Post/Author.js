@@ -1,15 +1,15 @@
+// @flow
 import React from 'react';
 import Img from 'gatsby-image';
 
-import { authorType } from '../../propTypes/post';
+import type { AuthorType } from '../../types/post';
 
 import ByteIcon from '../icons/ByteIcon';
-
 import SocialLink from './SocialLink';
 
 import styles from './Post.module.scss';
 
-const Author = ({ author }) => (
+const Author = ({ author }: {author: AuthorType}) => (
   <aside className={styles.post_author}>
     <figure className={`${styles.post_author__avatar} ${styles.avatar}`}>
       <Img sizes={author.avatar.childImageSharp.sizes} />
@@ -26,9 +26,5 @@ const Author = ({ author }) => (
     </div>
   </aside>
 );
-
-Author.propTypes = {
-  author: authorType.isRequired,
-};
 
 export default Author;

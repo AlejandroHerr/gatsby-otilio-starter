@@ -1,16 +1,17 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import classnames from 'classnames';
+
+import type { PaginationType } from '../../types/postsIndex';
 
 import ByteIcon from '../icons/ByteIcon';
 
 import styles from './PostsIndex.module.scss';
 
-const Pagination = ({ page, pageCount, pathPrefix }) => (
+const Pagination = ({ page, pageCount, pathPrefix }: PaginationType) => (
   <nav className={styles.posts_index_pagination}>
     <div className={styles.posts_index_pagination__inner}>
-
       {page > 1 &&
         <Link
           className={classnames(
@@ -19,7 +20,7 @@ const Pagination = ({ page, pageCount, pathPrefix }) => (
           )}
           to={page > 2 ? `${pathPrefix}/${page - 1}` : '/'}
         >
-          <ByteIcon icon="chevron_left" /><span className={styles.posts_index_pagination__label}>Newer Posts</span>
+          <span className={styles.posts_index_pagination__label}><ByteIcon icon="chevron_left" /> Newer Posts</span>
         </Link>
       }
       <span className={styles.posts_index_pagination__info}>{`Page ${page} of ${pageCount}`}</span>
@@ -31,7 +32,7 @@ const Pagination = ({ page, pageCount, pathPrefix }) => (
           )}
           to={`${pathPrefix}/${page + 1}`}
         >
-          <span className={styles.posts_index_pagination__label}>Older Posts</span><ByteIcon icon="chevron_right" />
+          <span className={styles.posts_index_pagination__label}>Older Posts <ByteIcon icon="chevron_right" /></span>
         </Link>
       }
       <div className={styles.posts_index_pagination__clear} />
@@ -39,11 +40,5 @@ const Pagination = ({ page, pageCount, pathPrefix }) => (
     </div>
   </nav>
 );
-
-Pagination.propTypes = {
-  page: PropTypes.number.isRequired,
-  pageCount: PropTypes.number.isRequired,
-  pathPrefix: PropTypes.string.isRequired,
-};
 
 export default Pagination;
