@@ -22,6 +22,7 @@ whitelist: &whitelist
     - .babelrc
     - .eslintignore
     - .eslintrc.js
+    - .flowconfig
     - .stylelintrc
     - .gitignore
     - package.json
