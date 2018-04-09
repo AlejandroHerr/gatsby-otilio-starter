@@ -45,13 +45,21 @@ jobs:
       - run:
           name: Install Dependencies
           command: yarn install
-      - run:
-          name: Flow Typed
-          command: yarn flow:typed
       - save_cache:
           paths:
             - node_modules
           key: dependency-cache--{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: ~/gatsby-otilio-starter
+          <<: *whitelist
+  flow_typed:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/gatsby-otilio-starter
+      - run:
+          name: Flow Typed
+          command: yarn flow:typed
       - persist_to_workspace:
           root: ~/gatsby-otilio-starter
           <<: *whitelist
@@ -103,9 +111,12 @@ workflows:
   build_and_test:
     jobs:
       - checkout
-      - lint:
+      - flow_typed:
           requires:
             - checkout
+      - lint:
+          requires:
+            - flow_typed
       - flow:
           requires:
             - lint
