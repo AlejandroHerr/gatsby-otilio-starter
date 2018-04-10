@@ -81,7 +81,7 @@ jobs:
           command: yarn flow
       - run:
           name: Flow coverage
-          command: Flow coverage
+          command: yarn flow:coverage
   stylelint:
     <<: *defaults
     steps:
