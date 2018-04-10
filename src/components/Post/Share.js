@@ -2,14 +2,15 @@
 import React from 'react';
 import {
   FacebookShareButton,
-  FacebookIcon,
   TwitterShareButton,
-  TwitterIcon,
   WhatsappShareButton,
-  WhatsappIcon,
   LinkedinShareButton,
-  LinkedinIcon,
 } from 'react-share';
+
+import FacebookIcon from './shareIcons/FacebookIcon';
+import LinkedinIcon from './shareIcons/LinkedinIcon';
+import TwitterIcon from './shareIcons/TwitterIcon';
+import WhatsappIcon from './shareIcons/WhatsappIcon';
 
 import styles from './Post.module.scss';
 
