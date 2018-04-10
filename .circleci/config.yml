@@ -23,6 +23,7 @@ whitelist: &whitelist
     - .eslintignore
     - .eslintrc.js
     - .flowconfig
+    - .flowcoverage.json
     - .stylelintrc
     - .gitignore
     - package.json
