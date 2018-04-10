@@ -1,6 +1,49 @@
 @import '../../colors';
 @import '../../fonts';
 
+.posts_index_header {
+  padding: 6em 0;
+  text-align: center;
+}
+
+.posts_index_header--has_image {
+  padding: 9em 0 10em;
+}
+
+.posts_index_header__title {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  color: $color-black;
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 1em;
+  text-decoration: none;
+  z-index: 10;
+
+  a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+  }
+}
+
+.posts_index_header__body {
+  display: block;
+  position: relative;
+  margin: .25em 0;
+  padding: 0;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  z-index: 10;
+}
+
+.posts_index_header__title--has_image,
+.posts_index_header__body--has_image {
+  color: $color-white;
+}
+
 .posts_index_article {
   position: relative;
   padding: 4em 0;

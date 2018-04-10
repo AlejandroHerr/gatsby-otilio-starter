@@ -2,7 +2,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import MainHeader from '../components/MainHeader';
+import Header from '../components/PostsIndex/Header';
 import Article from '../components/PostsIndex/Article';
 import Pagination from '../components/PostsIndex/Pagination';
 
@@ -35,7 +35,7 @@ const PostsIndexTemplate = ({
   return (
     <div>
       <Helmet title={siteInfo.title} />
-      <MainHeader
+      <Header
         image={siteInfo.cover.childImageSharp.sizes}
         title={siteInfo.title}
         url={siteInfo.url}
