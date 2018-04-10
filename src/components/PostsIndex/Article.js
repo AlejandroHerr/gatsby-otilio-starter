@@ -1,13 +1,14 @@
+// @flow
 import React from 'react';
 import Link from 'gatsby-link';
 
-import { articleType } from '../../propTypes/postsIndex';
+import type { ArticleType } from '../../types/postsIndex';
 
 import styles from './PostsIndex.module.scss';
 
-const getDisplayDate = date => date.toLocaleDateString('en-us', { day: 'numeric', month: 'short', year: 'numeric' });
+const getDisplayDate = (date: Date) => date.toLocaleDateString('en-us', { day: 'numeric', month: 'short', year: 'numeric' });
 
-const Article = ({ article }) => {
+const Article = ({ article }: {article: ArticleType }) => {
   const {
     author,
     date,
@@ -47,10 +48,6 @@ const Article = ({ article }) => {
       <div className={styles.posts_index_article__separator} />
     </article>
   );
-};
-
-Article.propTypes = {
-  article: articleType.isRequired,
 };
 
 export default Article;

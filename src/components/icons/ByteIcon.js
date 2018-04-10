@@ -1,10 +1,16 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import styles from './ByteIcon.module.scss';
 
-const ByteIcon = ({ bold, className, icon }) => (
+type PropsType = {
+  bold?: boolean,
+  className?: string,
+  icon: string,
+};
+
+const ByteIcon = ({ bold, className, icon }: PropsType) => (
   <svg
     className={classnames(
       styles.byte_icon,
@@ -22,12 +28,6 @@ const ByteIcon = ({ bold, className, icon }) => (
 ByteIcon.defaultProps = {
   bold: false,
   className: '',
-};
-
-ByteIcon.propTypes = {
-  bold: PropTypes.bool,
-  className: PropTypes.string,
-  icon: PropTypes.string.isRequired,
 };
 
 export default ByteIcon;

@@ -1,14 +1,24 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-
-import { pathContextType, siteInfoType } from '../propTypes/postsIndex';
 
 import MainHeader from '../components/MainHeader';
 import Article from '../components/PostsIndex/Article';
 import Pagination from '../components/PostsIndex/Pagination';
 
-const PostsIndexTemplate = ({ data, pathContext }) => {
+import type { ChildDataJsonType } from '../types/gatsby';
+import type { PathContextType, SiteInfoType } from '../types/postsIndex';
+
+type PropsType = {
+  data: {
+    siteInfo: ChildDataJsonType<SiteInfoType>,
+  },
+  pathContext: PathContextType,
+};
+
+const PostsIndexTemplate = ({
+  data, pathContext,
+}: PropsType) => {
   const {
     siteInfo: {
       childDataJson: siteInfo,
@@ -44,19 +54,11 @@ const PostsIndexTemplate = ({ data, pathContext }) => {
   );
 };
 
-PostsIndexTemplate.propTypes = {
-  data: PropTypes.shape({
-    siteInfo: PropTypes.shape({
-      childDataJson: siteInfoType.isRequired,
-    }).isRequired,
-  }).isRequired,
-  pathContext: pathContextType.isRequired,
-};
-
 export default PostsIndexTemplate;
 
 
 /* eslint-disable */
+/* $FlowFixMe */
 export const pageQuery = graphql`
   query IndexQuery {
     siteInfo: file(relativePath: { eq: "siteInfo.json" }) {

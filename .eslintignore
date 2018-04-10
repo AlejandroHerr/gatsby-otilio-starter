@@ -1,1 +1,4 @@
+flow-coverage/
+flow-typed/
+
 __snapshots__/
