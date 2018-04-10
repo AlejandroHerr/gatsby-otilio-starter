@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostsIndex Article should match the exact snapshot 1`] = `
+<article
+  className="posts_index_article"
+>
+  <div
+    className="posts_index_article__inner"
+  >
+    <header
+      className="post-header"
+    >
+      <h2
+        className="posts_index_article__title"
+      >
+        <a
+          className="posts_index_article__title__link"
+          to="test"
+        >
+          testTitle
+        </a>
+      </h2>
+      <span
+        className="posts_index_article__meta"
+      >
+        testAuthor
+         | 
+        <time
+          dateTime="2018-04-30T05:00:00.000Z"
+        >
+          Apr 30, 2018
+        </time>
+      </span>
+      <div
+        className="posts_index_article__clear"
+      />
+    </header>
+    <section>
+      <p
+        className="posts_index_article__excerpt"
+      >
+        Excerpt test
+      </p>
+    </section>
+  </div>
+  <div
+    className="posts_index_article__separator"
+  />
+</article>
+`;
+
+exports[`PostsIndex Article should match the exact snapshot with tags 1`] = `
+<article
+  className="posts_index_article"
+>
+  <div
+    className="posts_index_article__inner"
+  >
+    <header
+      className="post-header"
+    >
+      <h2
+        className="posts_index_article__title"
+      >
+        <a
+          className="posts_index_article__title__link"
+          to="test"
+        >
+          testTitle
+        </a>
+      </h2>
+      <span
+        className="posts_index_article__meta"
+      >
+        testAuthor
+         | 
+        <time
+          dateTime="2018-04-30T05:00:00.000Z"
+        >
+          Apr 30, 2018
+        </time>
+      </span>
+      <div
+        className="posts_index_article__clear"
+      />
+    </header>
+    <section>
+      <p
+        className="posts_index_article__excerpt"
+      >
+        Excerpt test
+      </p>
+    </section>
+  </div>
+  <div
+    className="posts_index_article__separator"
+  />
+</article>
+`;

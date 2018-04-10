@@ -1,7 +1,6 @@
 ---
 title: Hello World
-date: "2018-05-01T22:12:03.284Z"
-path: "/showcase/"
+date: "2018-04-04T19:43:39.435Z"
 author: "AlejandroHerr"
 ---
 

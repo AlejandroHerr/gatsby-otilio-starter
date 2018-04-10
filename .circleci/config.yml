@@ -3,12 +3,18 @@ defaults: &defaults
   working_directory: ~/gatsby-otilio-starter
   docker:
     - image: circleci/node:8.9-stretch
+      environment:
+          TZ: "/usr/share/zoneinfo/Europe/Warsaw"
+  environment:
+      TZ: "/usr/share/zoneinfo/Europe/Warsaw"
 
 whitelist: &whitelist
   paths:
     - .git/
     - data/
     - posts/
+    - flow-typed/
+    - internals/
     - node_modules/
     - src/
     - tests/
@@ -16,6 +22,9 @@ whitelist: &whitelist
     - .babelrc
     - .eslintignore
     - .eslintrc.js
+    - .flowconfig
+    - .flowcoverage.json
+    - .stylelintrc
     - .gitignore
     - package.json
     - yarn.lock
@@ -44,6 +53,17 @@ jobs:
       - persist_to_workspace:
           root: ~/gatsby-otilio-starter
           <<: *whitelist
+  flow_typed:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/gatsby-otilio-starter
+      - run:
+          name: Flow Typed
+          command: yarn flow:typed
+      - persist_to_workspace:
+          root: ~/gatsby-otilio-starter
+          <<: *whitelist
   lint:
     <<: *defaults
     steps:
@@ -52,6 +72,25 @@ jobs:
       - run:
           name: Eslint check
           command: yarn lint
+  flow:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/gatsby-otilio-starter
+      - run:
+          name: Flow check
+          command: yarn flow
+      - run:
+          name: Flow coverage
+          command: yarn flow:coverage
+  stylelint:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/gatsby-otilio-starter
+      - run:
+          name: Stylelint check
+          command: yarn lint:styles
   test:
     <<: *defaults
     steps:
@@ -73,7 +112,16 @@ workflows:
   build_and_test:
     jobs:
       - checkout
+      - flow_typed:
+          requires:
+            - checkout
       - lint:
+          requires:
+            - flow_typed
+      - flow:
+          requires:
+            - flow_typed
+      - stylelint:
           requires:
             - checkout
       - test:

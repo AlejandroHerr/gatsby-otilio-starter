@@ -1,15 +1,22 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Link from 'gatsby-link';
+
+import type { PreviewType } from '../../types/post';
 
 import ByteIcon from '../icons/ByteIcon';
 
 import styles from './Post.module.scss';
 
+type PropsType = {
+  className: string,
+  icon: string,
+} & PreviewType;
+
 const NavigationLink = ({
   className, icon, excerpt, path, title,
-}) => (
+}: PropsType) => (
   <Link
     className={classnames(styles.post_navigation__link, className)}
     to={path}
@@ -23,13 +30,5 @@ const NavigationLink = ({
     </section>
   </Link>
 );
-
-NavigationLink.propTypes = {
-  className: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
-  excerpt: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};
 
 export default NavigationLink;

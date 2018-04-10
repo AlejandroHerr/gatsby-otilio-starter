@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 
 import SimpleIcon from './icons/SimpleIcon';
@@ -42,4 +43,3 @@ const Footer = () => (
 );
 
 export default Footer;
-//

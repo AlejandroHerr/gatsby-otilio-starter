@@ -1,10 +1,9 @@
+// @flow
 /* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import { authorType, postPreviewType, postType, siteInfoType } from '../../templates/Post.propTypes';
+import type { AuthorType, PreviewType, SiteInfoType, PostType } from '../../types/post';
 
-import Footer from '../Footer';
 import ProgressControl from '../ProgressControl';
 
 import PostHeader from './PostHeader';
@@ -15,26 +14,36 @@ import Navigation from './Navigation';
 
 import styles from './Post.module.scss';
 
+type PropsType = {
+  author: AuthorType,
+  siteInfo: SiteInfoType,
+  post: PostType,
+  navigation: {
+    prev?: PreviewType,
+    next?: PreviewType,
+  },
+};
+
 const Post = ({
   author, navigation, post, siteInfo,
-}) => {
+}: PropsType) => {
   const { next, prev } = navigation;
-
   const {
-    author: postAuthor, title, cover, tags, date, path,
+    slug: path,
+  } = post.fields;
+  const {
+    author: postAuthor, title, cover, tags, date,
   } = post.frontmatter;
 
   const { url } = siteInfo;
 
-
-  const coverImage = cover && (cover.childImageSharp.resolutions || cover.childImageSharp.sizes);
   return (
     <div>
       <PostHeader
         author={postAuthor}
         date={date}
         title={title}
-        image={coverImage}
+        image={cover && cover.childImageSharp.sizes}
         timeToRead={post.timeToRead}
       />
       <main>
@@ -56,20 +65,8 @@ const Post = ({
           </div>
         </article>
       </main>
-      <Footer />
     </div>
   );
 };
-
-Post.propTypes = {
-  author: authorType.isRequired,
-  navigation: PropTypes.shape({
-    next: postPreviewType,
-    prev: postPreviewType,
-  }).isRequired,
-  post: postType.isRequired,
-  siteInfo: siteInfoType.isRequired,
-};
-
 
 export default Post;

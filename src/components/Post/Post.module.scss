@@ -354,3 +354,57 @@
     float: none;
   }
 }
+
+.post_header__title {
+  position: relative;
+  margin: 0;
+  margin-bottom: .25em;
+  padding: 0;
+  color: $color-black;
+  font-family: $header-font-familiy;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1em;
+  text-indent: -1px;
+  z-index: 10;
+}
+
+.post_header__body {
+  display: block;
+  position: relative;
+  margin: .25em 0;
+  margin-bottom: 1.334em;
+  padding: 0;
+  font-family: $header-font-familiy;
+  font-size: .75em;
+  font-weight: 400;
+  line-height: 1.334em;
+  opacity: .5;
+  z-index: 10;
+}
+
+.post_header__author {
+  border-bottom: 1px solid transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+.post_header__author:hover,
+.post_header__author:focus {
+  border-color: rgba(0, 0, 0, .5);
+}
+
+.post_header__title--has_image,
+.post_header__body--has_image {
+  color: $color-white;
+}
+
+.post_header__body--has_image {
+  opacity: .75;
+}
+
+.post_header__author--has_image:hover,
+.post_header__author--has_image:focus {
+  border-color: rgba(255, 255, 255, .5);
+  color: $color-white;
+}

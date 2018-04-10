@@ -1,57 +1,48 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Link from 'gatsby-link';
 
+import type { SizeImageSharpType } from '../../types/gatsby';
+
 import ByteIcon from '../icons/ByteIcon';
-import CoverImage from '../CoverImage';
+import HeroHeader from '../HeroHeader';
 
-import { imageSharpSizesType } from '../../templates/Post.propTypes';
+import styles from './Post.module.scss';
 
-import styles from './PostHeader.module.scss';
+type PropsType = {
+  author: string,
+  date: string,
+  image?: ?SizeImageSharpType,
+  title: string,
+  timeToRead: number,
+};
 
 const getDisplayDate = date => date.toLocaleDateString('en-us', { day: 'numeric', month: 'short', year: 'numeric' });
 
 const PostHeader = ({
   author, date, image, title, timeToRead,
-}) => {
+}: PropsType) => {
   const postDate = new Date(date);
   return (
-    <header className={classnames(styles.post_header, { [styles['post_header--has_image']]: !!image })}>
-      <div className={styles.post_header__inner}>
-        <h1 className={styles.post_header__title}>
-          {title}
-        </h1>
-        <span className={styles.post_header__body}>
-          <Link className={styles.post_header__author} to="/">{author}</Link>
-          {' | '}
-          <span><ByteIcon icon="clock" bold /> {timeToRead}</span>
-          {' | '}
-          <time dateTime={postDate.toISOString()}>{getDisplayDate(postDate)}</time>
-        </span>
-        {image && (
-        <CoverImage
-          className={styles.post_header__image}
-          shadowClassName={styles.post_header__image_shadow}
-          image={image}
-        />
-      )}
-      </div>
-    </header>
+    <HeroHeader image={image}>
+      <h1 className={classnames(styles.post_header__title, { [styles['post_header__title--has_image']]: !!image })}>
+        {title}
+      </h1>
+      <span className={classnames(styles.post_header__body, { [styles['post_header__body--has_image']]: !!image })}>
+        <Link className={classnames(styles.post_header__author, { [styles['post_header__author--has_image']]: !!image })} to="/">{author}</Link>
+        {' | '}
+        <span><ByteIcon icon="clock" bold /> {timeToRead}</span>
+        {' | '}
+        <time dateTime={postDate.toISOString()}>{getDisplayDate(postDate)}</time>
+      </span>
+    </HeroHeader>
   );
 };
 
 
 PostHeader.defaultProps = {
   image: null,
-};
-
-PostHeader.propTypes = {
-  author: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  image: imageSharpSizesType,
-  title: PropTypes.string.isRequired,
-  timeToRead: PropTypes.number.isRequired,
 };
 
 export default PostHeader;

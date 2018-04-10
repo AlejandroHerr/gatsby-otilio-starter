@@ -1,10 +1,24 @@
-/* globals window,document */
+// @flow
+/* globals document */
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 
-export default class CoverImage extends PureComponent {
-  constructor(props) {
+import type { SizeImageSharpType } from '../../types/gatsby';
+
+import styles from './HeroHeader.module.scss';
+
+type PropsType = {
+  image: SizeImageSharpType,
+};
+
+type StateType = {
+  translateY: number,
+};
+
+export default class HeroImage extends PureComponent<PropsType, StateType> {
+  handleScroll: () => void;
+
+  constructor(props: PropsType) {
     super(props);
 
     this.state = {
@@ -23,17 +37,18 @@ export default class CoverImage extends PureComponent {
   }
 
   handleScroll() {
-    const scrollTop = (window.pageYOffset || document.documentElement.scrollTop) || 0;
+    const scrollTop = (document.documentElement && document.documentElement.scrollTop)
+      || 0;
 
     this.setState({ translateY: scrollTop / 5 });
   }
   render() {
-    const { className, image, shadowClassName } = this.props;
+    const { image } = this.props;
     const { translateY } = this.state;
 
     return (
       <div
-        className={className}
+        className={styles.hero_image}
         style={{ transform: `translate3d(0px, ${translateY}px, 0px)` }}
       >
         <Img
@@ -47,22 +62,8 @@ export default class CoverImage extends PureComponent {
             margin: '0',
           }}
         />
-        <div className={shadowClassName} />
+        <div className={styles.hero_image__shadow} />
       </div>
     );
   }
 }
-
-CoverImage.propTypes = {
-  className: PropTypes.string.isRequired,
-  image: PropTypes.shape({
-    aspectRatio: PropTypes.number,
-    base64: PropTypes.string,
-    size: PropTypes.string,
-    src: PropTypes.string,
-    srcSet: PropTypes.string,
-    srcSetWebp: PropTypes.string,
-    srcWebp: PropTypes.string,
-  }).isRequired,
-  shadowClassName: PropTypes.string.isRequired,
-};

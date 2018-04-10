@@ -1,0 +1,141 @@
+@import '../../colors';
+@import '../../fonts';
+
+.posts_index_article {
+  position: relative;
+  padding: 4em 0;
+  z-index: 10;
+}
+
+.posts_index_article__inner,
+.posts_index_pagination__inner {
+  max-width: 32em;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+.posts_index_article__title {
+  position: relative;
+  margin: 0 0 .25em;
+  color: $color-black;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1em;
+  text-indent: -1px;
+  z-index: 10;
+}
+
+.posts_index_article__title__link {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+.posts_index_article__meta {
+  display: block;
+  position: relative;
+  margin-bottom: 1.334em;
+  font-family: $header-font-familiy;
+  font-size: .75em;
+  font-weight: 400;
+  line-height: 1.334em;
+  opacity: .5;
+  z-index: 10;
+}
+
+.posts_index_article__meta__link {
+  border-bottom: 1px solid transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+.posts_index_article__meta__link:hover,
+.posts_index_article__meta__link:focus {
+  border-color: rgba(0, 0, 0, .5);
+}
+
+.posts_index_article__clear,
+.posts_index_pagination__clear {
+  clear: both;
+}
+
+.posts_index_article__excerpt {
+  margin: .5em 0 0;
+}
+
+.posts_index_article__separator,
+.posts_index_pagination__separator, {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 32em;
+  height: 1px;
+  margin-left: -16em;
+  background: $color-gray-90;
+}
+
+@media only screen and (max-width: 480px) {
+  .posts_index_article__inner,
+  .posts_index_pagination__inner {
+    padding: 0 16px;
+  }
+}
+
+.posts_index_pagination {
+  position: relative;
+  height: 2em;
+  margin: 0;
+  padding: 2em 0;
+  font-family: $header-font-familiy;
+}
+
+.posts_index_pagination__info {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2.667em;
+  font-size: .75em;
+  text-align: center;
+  z-index: 50;
+}
+
+.posts_index_pagination__link {
+  color: $color-blue-15;
+  font-size: .75em;
+}
+
+.posts_index_pagination__prev {
+  padding-left: 1.334em;
+  float: right;
+}
+
+.posts_index_pagination__next {
+  padding-right: 1.334em;
+  float: left;
+}
+
+.posts_index_pagination__label {
+  display: inline-block;
+  position: relative;
+  height: 1.334em;
+  line-height: 1.334em;
+  z-index: 100;
+}
+
+.posts_index_pagination__label,
+.posts_index_pagination__label_icon {
+  z-index: 100;
+}
+
+.posts_index_pagination__link:hover,
+.posts_index_pagination__link:focus {
+  border-color: $primary-color;
+  color: $primary-color;
+}
+
+@media only screen and (max-width: 320px) {
+  .posts_index_pagination__label {
+    display: none;
+  }
+}
