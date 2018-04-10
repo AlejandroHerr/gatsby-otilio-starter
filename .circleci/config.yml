@@ -119,7 +119,7 @@ workflows:
             - flow_typed
       - flow:
           requires:
-            - lint
+            - flow_typed
       - stylelint:
           requires:
             - checkout
