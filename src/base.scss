@@ -133,7 +133,7 @@ ol {
 }
 
 ol > li::before {
-  content: counter(item) ". " !important;
+  content: counter(item) ". ";
   margin-top: -.17em;
   counter-increment: item;
 }
