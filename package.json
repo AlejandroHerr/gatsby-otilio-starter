@@ -92,7 +92,7 @@
     "dev": "yarn clean &&  gatsby develop",
     "flow": "flow check",
     "flow:typed": "flow-typed install --overwrite || true",
-    "flow:coverage": "flow-coverage-report -i 'src/**/*.js' -f ./node_modules/.bin/flow --threshold 90",
+    "flow:coverage": "flow-coverage-report --config ./.flowcoverage.json",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public . --format=node_modules/eslint-formatter-pretty .",
     "lint:fix": "eslint --ext .js,.jsx --ignore-pattern public . --fix",
     "lint:styles": "yarn stylelint 'src/**/*.scss'",

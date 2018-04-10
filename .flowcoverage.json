@@ -1,0 +1,12 @@
+{
+  "concurrentFiles": 1,
+  "excludeGlob": [
+    "node_modules/**"
+  ],
+  "flowCommandPath": "./node_modules/.bin/flow",
+  "includeGlob": [
+    "src/**/*.js",
+    "gatsby-node.js"
+  ],
+  "threshold": 90
+}
