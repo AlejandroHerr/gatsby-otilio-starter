@@ -4,9 +4,6 @@
     "node_modules/**"
   ],
   "flowCommandPath": "./node_modules/.bin/flow",
-  "includeGlob": [
-    "src/**/*.js",
-    "gatsby-node.js"
-  ],
+  "includeGlob": [ "src/**/*.js" ],
   "threshold": 90
 }
