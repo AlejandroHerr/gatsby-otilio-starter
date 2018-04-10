@@ -15,7 +15,7 @@ exports[`PostsIndex Article should match the exact snapshot 1`] = `
       >
         <a
           className="posts_index_article__title__link"
-          to="testPath"
+          to="test"
         >
           testTitle
         </a>
@@ -64,7 +64,7 @@ exports[`PostsIndex Article should match the exact snapshot with tags 1`] = `
       >
         <a
           className="posts_index_article__title__link"
-          to="testPath"
+          to="test"
         >
           testTitle
         </a>

@@ -4,13 +4,11 @@ import renderer from 'react-test-renderer';
 import Article from '../../../src/components/PostsIndex/Article';
 
 const defaultArticle = {
+  author: 'testAuthor',
+  date: '2018-04-30T05:00:00.000Z',
   excerpt: 'Excerpt test',
-  frontmatter: {
-    author: 'testAuthor',
-    date: '2018-04-30T05:00:00.000Z',
-    path: 'testPath',
-    title: 'testTitle',
-  },
+  slug: 'test',
+  title: 'testTitle',
 };
 
 describe('PostsIndex', () => {
