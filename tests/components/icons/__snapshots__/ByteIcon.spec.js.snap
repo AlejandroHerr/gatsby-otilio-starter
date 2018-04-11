@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`icons ByteIcon should render a ByteIcon with custom options 1`] = `
+<svg
+  className="byte_icon byte_icon__testIcon byte_icon__bold testClassName"
+  viewBox="0 0 32 32"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path />
+</svg>
+`;
+
+exports[`icons ByteIcon should render a default ByteIcon 1`] = `
+<svg
+  className="byte_icon byte_icon__testIcon"
+  viewBox="0 0 32 32"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path />
+</svg>
+`;
