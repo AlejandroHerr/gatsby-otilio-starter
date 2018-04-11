@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PostsIndex Article should match the exact snapshot 1`] = `
+exports[`PostsIndex Article should render an article link 1`] = `
 <article
   className="posts_index_article"
 >
@@ -13,12 +13,12 @@ exports[`PostsIndex Article should match the exact snapshot 1`] = `
       <h2
         className="posts_index_article__title"
       >
-        <a
+        <GatsbyLink
           className="posts_index_article__title__link"
           to="test"
         >
           testTitle
-        </a>
+        </GatsbyLink>
       </h2>
       <span
         className="posts_index_article__meta"
@@ -49,7 +49,7 @@ exports[`PostsIndex Article should match the exact snapshot 1`] = `
 </article>
 `;
 
-exports[`PostsIndex Article should match the exact snapshot with tags 1`] = `
+exports[`PostsIndex Article should render an article link with tags 1`] = `
 <article
   className="posts_index_article"
 >
@@ -64,7 +64,7 @@ exports[`PostsIndex Article should match the exact snapshot with tags 1`] = `
       >
         <a
           className="posts_index_article__title__link"
-          to="test"
+          href="test"
         >
           testTitle
         </a>
@@ -73,6 +73,7 @@ exports[`PostsIndex Article should match the exact snapshot with tags 1`] = `
         className="posts_index_article__meta"
       >
         testAuthor
+         on test1, test2
          | 
         <time
           dateTime="2018-04-30T05:00:00.000Z"

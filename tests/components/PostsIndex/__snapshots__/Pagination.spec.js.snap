@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostsIndex Pagination should render a pagination for one page only 1`] = `
+<nav
+  className="posts_index_pagination"
+>
+  <div
+    className="posts_index_pagination__inner"
+  >
+    <span
+      className="posts_index_pagination__info"
+    >
+      Page 1 of 1
+    </span>
+    <div
+      className="posts_index_pagination__clear"
+    />
+    <div
+      className="posts_index_pagination__separator"
+    />
+  </div>
+</nav>
+`;
+
+exports[`PostsIndex Pagination should render pagination for middle page 1`] = `
+<nav
+  className="posts_index_pagination"
+>
+  <div
+    className="posts_index_pagination__inner"
+  >
+    <GatsbyLink
+      className="posts_index_pagination__link posts_index_pagination__next"
+      to="/"
+    >
+      <span
+        className="posts_index_pagination__label"
+      >
+        <ByteIcon
+          bold={false}
+          className=""
+          icon="chevron_left"
+        />
+         Newer Posts
+      </span>
+    </GatsbyLink>
+    <span
+      className="posts_index_pagination__info"
+    >
+      Page 2 of 3
+    </span>
+    <GatsbyLink
+      className="posts_index_pagination__link posts_index_pagination__prev"
+      to="prefix/3"
+    >
+      <span
+        className="posts_index_pagination__label"
+      >
+        Older Posts 
+        <ByteIcon
+          bold={false}
+          className=""
+          icon="chevron_right"
+        />
+      </span>
+    </GatsbyLink>
+    <div
+      className="posts_index_pagination__clear"
+    />
+    <div
+      className="posts_index_pagination__separator"
+    />
+  </div>
+</nav>
+`;
+
+exports[`PostsIndex Pagination should render pagination for the first page 1`] = `
+<nav
+  className="posts_index_pagination"
+>
+  <div
+    className="posts_index_pagination__inner"
+  >
+    <span
+      className="posts_index_pagination__info"
+    >
+      Page 1 of 2
+    </span>
+    <GatsbyLink
+      className="posts_index_pagination__link posts_index_pagination__prev"
+      to="prefix/2"
+    >
+      <span
+        className="posts_index_pagination__label"
+      >
+        Older Posts 
+        <ByteIcon
+          bold={false}
+          className=""
+          icon="chevron_right"
+        />
+      </span>
+    </GatsbyLink>
+    <div
+      className="posts_index_pagination__clear"
+    />
+    <div
+      className="posts_index_pagination__separator"
+    />
+  </div>
+</nav>
+`;
+
+exports[`PostsIndex Pagination should render pagination for the last page 1`] = `
+<nav
+  className="posts_index_pagination"
+>
+  <div
+    className="posts_index_pagination__inner"
+  >
+    <GatsbyLink
+      className="posts_index_pagination__link posts_index_pagination__next"
+      to="prefix/2"
+    >
+      <span
+        className="posts_index_pagination__label"
+      >
+        <ByteIcon
+          bold={false}
+          className=""
+          icon="chevron_left"
+        />
+         Newer Posts
+      </span>
+    </GatsbyLink>
+    <span
+      className="posts_index_pagination__info"
+    >
+      Page 3 of 3
+    </span>
+    <div
+      className="posts_index_pagination__clear"
+    />
+    <div
+      className="posts_index_pagination__separator"
+    />
+  </div>
+</nav>
+`;

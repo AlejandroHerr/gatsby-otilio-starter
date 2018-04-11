@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostsIndex Header should render a HeroHeader 1`] = `
+<HeroHeader
+  className="posts_index_header"
+  image={null}
+>
+  <h1
+    className="posts_index_header__title"
+  >
+    <a
+      className="posts_index_header__title_link"
+      href="Test url"
+    >
+      Test title
+    </a>
+  </h1>
+  <span
+    className="posts_index_header__body"
+  >
+    Test description
+  </span>
+</HeroHeader>
+`;
