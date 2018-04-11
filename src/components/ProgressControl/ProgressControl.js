@@ -19,12 +19,12 @@ const mapPropsToStyle = ({ progress, speed }: {progress: number, speed: number})
   transition: `transform ${speed}ms ease`,
 });
 
-export default class ProgressSection extends PureComponent<PropsType, StateType> {
+export default class ProgressControl extends PureComponent<PropsType, StateType> {
   container: ?HTMLDivElement;
   calculateProgress: () => void;
 
-  static defaultProps = {
-    speed: 200,
+  static defaultProps: {
+    speed: number,
   }
 
   constructor(props: PropsType) {
@@ -77,3 +77,7 @@ export default class ProgressSection extends PureComponent<PropsType, StateType>
     );
   }
 }
+
+ProgressControl.defaultProps = {
+  speed: 200,
+};
