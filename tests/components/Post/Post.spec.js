@@ -56,19 +56,16 @@ describe('Post', () => {
     expect(post).toMatchSnapshot();
   });
   it('should render a Post with tags', () => {
-    const props = {
-      ...defaultProps,
-      post: {
-        ...defaultProps.post,
-        frontmatter: {
-          ...defaultProps.post.frontmatter,
-          tags: ['test1', 'test2'],
-        },
+    const postProp = {
+      ...defaultProps.post,
+      frontmatter: {
+        ...defaultProps.post.frontmatter,
+        tags: ['test1', 'test2'],
       },
     };
     const {
       post, postHeader, progressControl, share, tags, author, navigation,
-    } = setup(props);
+    } = setup({ post: postProp });
 
     expect(postHeader).toHaveLength(1);
     expect(progressControl).toHaveLength(1);
@@ -79,25 +76,22 @@ describe('Post', () => {
     expect(post).toMatchSnapshot();
   });
   it('should render a PostHeader with cover', () => {
-    const props = {
-      ...defaultProps,
-      post: {
-        ...defaultProps.post,
-        frontmatter: {
-          ...defaultProps.post.frontmatter,
-          cover: {
-            childImageSharp: {
-              sizes: { src: 'src' },
-            },
+    const postProp = {
+      ...defaultProps.post,
+      frontmatter: {
+        ...defaultProps.post.frontmatter,
+        cover: {
+          childImageSharp: {
+            sizes: { src: 'src' },
           },
         },
       },
     };
     const {
       post, postHeader,
-    } = setup(props);
+    } = setup({ post: postProp });
 
-    expect(postHeader.prop('image')).toBe(props.post.frontmatter.cover.childImageSharp.sizes);
+    expect(postHeader.prop('image')).toBe(postProp.frontmatter.cover.childImageSharp.sizes);
     expect(post).toMatchSnapshot();
   });
 });
