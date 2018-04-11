@@ -2,9 +2,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import Header from '../components/PostsIndex/Header';
-import Article from '../components/PostsIndex/Article';
-import Pagination from '../components/PostsIndex/Pagination';
+import PostsIndex from '../components/PostsIndex';
 
 import type { ChildDataJsonType } from '../types/gatsby';
 import type { PathContextType, SiteInfoType } from '../types/postsIndex';
@@ -25,31 +23,10 @@ const PostsIndexTemplate = ({
     },
   } = data;
 
-  const {
-    group: posts,
-    index,
-    pageCount,
-    pathPrefix,
-  } = pathContext;
-
   return (
     <div>
       <Helmet title={siteInfo.title} />
-      <Header
-        image={siteInfo.cover.childImageSharp.sizes}
-        title={siteInfo.title}
-        url={siteInfo.url}
-        description={siteInfo.description}
-      />
-      <main role="main">
-        {posts.map(article => (
-          <Article
-            key={article.slug}
-            article={article}
-          />
-        ))}
-        <Pagination page={index} pageCount={pageCount} pathPrefix={pathPrefix} />
-      </main>
+      <PostsIndex pathContext={pathContext} siteInfo={siteInfo} />
     </div>
   );
 };
