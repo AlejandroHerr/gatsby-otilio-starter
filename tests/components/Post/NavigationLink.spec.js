@@ -1,5 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
+import GatsbyLink from 'gatsby-link';
 
 import NavigationLink from '../../../src/components/Post/NavigationLink';
 
@@ -11,12 +12,23 @@ const defaultProps = {
   title: 'testTitle',
 };
 
+const setup = (props = {}) => {
+  const navigationLink = shallow(<NavigationLink {...defaultProps} {...props} />);
+
+  return {
+    navigationLink,
+    link: navigationLink.find(GatsbyLink),
+  };
+};
+
 describe('Post', () => {
   describe('NavigationLink', () => {
-    it('should match the exact snapshot', () => {
-      const tree = renderer.create(<NavigationLink {...defaultProps} />).toJSON();
+    it('should render a NavigationLink with a Gatsby Link', () => {
+      const { navigationLink, link } = setup();
 
-      expect(tree).toMatchSnapshot();
+      expect(link).toHaveLength(1);
+      expect(link.prop('to')).toBe(defaultProps.path);
+      expect(navigationLink).toMatchSnapshot();
     });
   });
 });

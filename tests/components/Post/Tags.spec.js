@@ -21,14 +21,10 @@ const setup = (props = {}) => {
 describe('Post', () => {
   describe('Tags', () => {
     it('expect to render one Tag for every tag', () => {
-      const { tag } = setup();
+      const { tags, tag } = setup();
 
       expect(tag).toHaveLength(defaultProps.tags.length);
-    });
-    it('should match the exact snapshot', () => {
-      const tree = renderer.create(<Tags {...defaultProps} />).toJSON();
-
-      expect(tree).toMatchSnapshot();
+      expect(tags).toMatchSnapshot();
     });
   });
 });

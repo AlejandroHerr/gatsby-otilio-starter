@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post should render a Post 1`] = `
+<div>
+  <PostHeader
+    author="autor"
+    date="1"
+    image={null}
+    title="title"
+  />
+  <main>
+    <article>
+      <div
+        className="post__inner"
+      >
+        <section
+          className="post__content"
+        >
+          <ProgressControl
+            speed={200}
+          >
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": undefined,
+                }
+              }
+            />
+          </ProgressControl>
+        </section>
+        <section
+          className="post__info"
+        >
+          <Share
+            path="slug"
+            url="siteInfo.url"
+          />
+          <div
+            className="post__clear"
+          />
+          <Author
+            author={Object {}}
+          />
+          <div
+            className="clear"
+          />
+        </section>
+        <Navigation
+          next={null}
+          prev={null}
+        />
+      </div>
+    </article>
+  </main>
+</div>
+`;
+
+exports[`Post should render a Post with tags 1`] = `
+<div>
+  <PostHeader
+    author="autor"
+    date="1"
+    image={null}
+    title="title"
+  />
+  <main>
+    <article>
+      <div
+        className="post__inner"
+      >
+        <section
+          className="post__content"
+        >
+          <ProgressControl
+            speed={200}
+          >
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": undefined,
+                }
+              }
+            />
+          </ProgressControl>
+        </section>
+        <section
+          className="post__info"
+        >
+          <Share
+            path="slug"
+            url="siteInfo.url"
+          />
+          <Tags
+            tags={
+              Array [
+                "test1",
+                "test2",
+              ]
+            }
+          />
+          <div
+            className="post__clear"
+          />
+          <Author
+            author={Object {}}
+          />
+          <div
+            className="clear"
+          />
+        </section>
+        <Navigation
+          next={null}
+          prev={null}
+        />
+      </div>
+    </article>
+  </main>
+</div>
+`;
+
+exports[`Post should render a PostHeader with cover 1`] = `
+<div>
+  <PostHeader
+    author="autor"
+    date="1"
+    image={
+      Object {
+        "src": "src",
+      }
+    }
+    title="title"
+  />
+  <main>
+    <article>
+      <div
+        className="post__inner"
+      >
+        <section
+          className="post__content"
+        >
+          <ProgressControl
+            speed={200}
+          >
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": undefined,
+                }
+              }
+            />
+          </ProgressControl>
+        </section>
+        <section
+          className="post__info"
+        >
+          <Share
+            path="slug"
+            url="siteInfo.url"
+          />
+          <div
+            className="post__clear"
+          />
+          <Author
+            author={Object {}}
+          />
+          <div
+            className="clear"
+          />
+        </section>
+        <Navigation
+          next={null}
+          prev={null}
+        />
+      </div>
+    </article>
+  </main>
+</div>
+`;
