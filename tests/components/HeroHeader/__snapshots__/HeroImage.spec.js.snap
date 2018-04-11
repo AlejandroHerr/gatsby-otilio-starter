@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeroCover HeroImage should handle on scroll events 1`] = `
+<div
+  className="hero_image"
+  style={
+    Object {
+      "transform": "translate3d(0px, 10px, 0px)",
+    }
+  }
+>
+  <Image
+    Tag="div"
+    alt=""
+    fadeIn={true}
+    sizes={
+      Object {
+        "src": "src",
+      }
+    }
+    style={
+      Object {
+        "height": "100%",
+        "left": 0,
+        "margin": "0",
+        "position": "absolute",
+        "top": 0,
+        "width": "100%",
+      }
+    }
+  />
+  <div
+    className="hero_image__shadow"
+  />
+</div>
+`;
+
+exports[`HeroCover HeroImage should render a HeroImage 1`] = `
+<div
+  className="hero_image"
+  style={
+    Object {
+      "transform": "translate3d(0px, 0px, 0px)",
+    }
+  }
+>
+  <Image
+    Tag="div"
+    alt=""
+    fadeIn={true}
+    sizes={
+      Object {
+        "src": "src",
+      }
+    }
+    style={
+      Object {
+        "height": "100%",
+        "left": 0,
+        "margin": "0",
+        "position": "absolute",
+        "top": 0,
+        "width": "100%",
+      }
+    }
+  />
+  <div
+    className="hero_image__shadow"
+  />
+</div>
+`;
