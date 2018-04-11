@@ -5,4 +5,4 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-jest.mock('gatsby-link', () => props => (<a {...props} />));
+jest.mock('gatsby-link', () => require('../internals/mocks/GatsbyLink'));
