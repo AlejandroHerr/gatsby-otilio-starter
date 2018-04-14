@@ -84,12 +84,10 @@ module.exports = {
                   siteUrl
                 }
               }
-
               allSitePage {
                 edges {
                   node {
                     path,
-
                   }
                 }
               }
@@ -98,6 +96,18 @@ module.exports = {
     },
     'gatsby-plugin-sass',
     'gatsby-plugin-catch-links',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Misterious Lively Alejandro",
+        short_name: "AlejandroHerr",
+        start_url: "/",
+        background_color: "#ffffff",
+        theme_color: "#23af75",
+        display: "minimal-ui",
+        icon: "static/favicon.png" // This path is relative to the root of the site.
+      },
+    },
     'gatsby-plugin-netlify',
   ],
 };
