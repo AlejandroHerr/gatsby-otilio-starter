@@ -38,7 +38,7 @@ describe('PostsIndex', () => {
       const { pagination, link, info } = setup(props);
 
       expect(link).toHaveLength(1);
-      expect(link.first().prop('to')).toBe(`${props.pathPrefix}/${props.page + 1}`);
+      expect(link.first().prop('to')).toBe(`${props.pathPrefix}/page/${props.page + 1}`);
       expect(info.text()).toBe(`Page ${props.page} of ${props.pageCount}`);
       expect(pagination).toMatchSnapshot();
     });
@@ -51,9 +51,9 @@ describe('PostsIndex', () => {
       const { pagination, link, info } = setup(props);
 
       expect(link).toHaveLength(2);
-      expect(link.first().prop('to')).toBe('/');
+      expect(link.first().prop('to')).toBe(props.pathPrefix);
       expect(info.text()).toBe(`Page ${props.page} of ${props.pageCount}`);
-      expect(link.last().prop('to')).toBe(`${props.pathPrefix}/${props.page + 1}`);
+      expect(link.last().prop('to')).toBe(`${props.pathPrefix}/page/${props.page + 1}`);
       expect(pagination).toMatchSnapshot();
     });
     it('should render pagination for the last page', () => {
@@ -65,7 +65,7 @@ describe('PostsIndex', () => {
       const { pagination, link, info } = setup(props);
 
       expect(link).toHaveLength(1);
-      expect(link.first().prop('to')).toBe(`${props.pathPrefix}/${props.page - 1}`);
+      expect(link.first().prop('to')).toBe(`${props.pathPrefix}/page/${props.page - 1}`);
       expect(info.text()).toBe(`Page ${props.page} of ${props.pageCount}`);
       expect(pagination).toMatchSnapshot();
     });

@@ -31,7 +31,7 @@ exports[`PostsIndex Pagination should render pagination for middle page 1`] = `
   >
     <GatsbyLink
       className="posts_index_pagination__link posts_index_pagination__next"
-      to="/"
+      to="prefix"
     >
       <span
         className="posts_index_pagination__label"
@@ -51,7 +51,7 @@ exports[`PostsIndex Pagination should render pagination for middle page 1`] = `
     </span>
     <GatsbyLink
       className="posts_index_pagination__link posts_index_pagination__prev"
-      to="prefix/3"
+      to="prefix/page/3"
     >
       <span
         className="posts_index_pagination__label"
@@ -88,7 +88,7 @@ exports[`PostsIndex Pagination should render pagination for the first page 1`] =
     </span>
     <GatsbyLink
       className="posts_index_pagination__link posts_index_pagination__prev"
-      to="prefix/2"
+      to="prefix/page/2"
     >
       <span
         className="posts_index_pagination__label"
@@ -120,7 +120,7 @@ exports[`PostsIndex Pagination should render pagination for the last page 1`] = 
   >
     <GatsbyLink
       className="posts_index_pagination__link posts_index_pagination__next"
-      to="prefix/2"
+      to="prefix/page/2"
     >
       <span
         className="posts_index_pagination__label"

@@ -18,7 +18,7 @@ const Pagination = ({ page, pageCount, pathPrefix }: PaginationType) => (
             styles.posts_index_pagination__link,
             styles.posts_index_pagination__next,
           )}
-          to={page > 2 ? `${pathPrefix}/${page - 1}` : '/'}
+          to={page > 2 ? `${pathPrefix}/page/${page - 1}` : `${pathPrefix}`}
         >
           <span className={styles.posts_index_pagination__label}><ByteIcon icon="chevron_left" /> Newer Posts</span>
         </Link>
@@ -30,7 +30,7 @@ const Pagination = ({ page, pageCount, pathPrefix }: PaginationType) => (
             styles.posts_index_pagination__link,
             styles.posts_index_pagination__prev,
           )}
-          to={`${pathPrefix}/${page + 1}`}
+          to={`${pathPrefix}/page/${page + 1}`}
         >
           <span className={styles.posts_index_pagination__label}>Older Posts <ByteIcon icon="chevron_right" /></span>
         </Link>
