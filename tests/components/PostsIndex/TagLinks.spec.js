@@ -25,7 +25,7 @@ describe('PostsIndex', () => {
 
       expect(link).toHaveLength(defaultProps.tags.length);
       defaultProps.tags.forEach((tag, idx) => {
-        expect(link.at(idx).prop('to')).toBe(`tags/${tag}`);
+        expect(link.at(idx).prop('to')).toBe(`/tags/${tag}`);
         expect(link.at(idx).prop('children')).toBe(tag);
       });
       expect(tagLinks).toMatchSnapshot();
