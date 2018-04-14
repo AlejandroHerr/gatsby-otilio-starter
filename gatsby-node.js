@@ -69,10 +69,29 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         edges: postsIndex,
         createPage,
         pageTemplate: 'src/templates/PostsIndexTemplate.js',
-        pageLength: 5, // This is optional and defaults to 10 if not used
-        pathPrefix: 'page',
-        buildPath: (index, pathPrefix) => (index > 1 ? `${pathPrefix}/${index}` : '/'), // This is optional and this is the default
+        pageLength: 1, // This is optional and defaults to 10 if not used
+        buildPath: index => (index > 1 ? `/page/${index}` : '/'), // This is optional and this is the default
+      });
 
+      const postsByTag = postsIndex.reduce((listByTag, post) => (!post.tags || !post.tags.length
+        ? listByTag
+        : post.tags.reduce((listsOfPosts, tag) => ({
+          ...listsOfPosts,
+          [tag]: listsOfPosts[tag]
+            ? listsOfPosts[tag].concat(post)
+            : [post],
+
+        }), listByTag)), {});
+
+      Object.entries(postsByTag).forEach(([tag, listOfPosts]) => {
+        createPaginatedPages({
+          edges: listOfPosts,
+          createPage,
+          pageTemplate: 'src/templates/PostsIndexTemplate.js',
+          pageLength: 1, // This is optional and defaults to 10 if not used
+          pathPrefix: `/tag/${tag}`,
+          buildPath: (index, pathPrefix) => (index > 1 ? `${pathPrefix}/page/${index}` : `${pathPrefix}`), // This is optional and this is the default
+        });
       });
 
       posts.edges.forEach(({ node }, idx, edges) => createPage({
