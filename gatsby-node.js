@@ -69,7 +69,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         edges: postsIndex,
         createPage,
         pageTemplate: 'src/templates/PostsIndexTemplate.js',
-        pageLength: 1, // This is optional and defaults to 10 if not used
+        pageLength: 5, // This is optional and defaults to 10 if not used
         buildPath: index => (index > 1 ? `/page/${index}` : '/'), // This is optional and this is the default
       });
 
@@ -88,7 +88,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           edges: listOfPosts,
           createPage,
           pageTemplate: 'src/templates/PostsIndexTemplate.js',
-          pageLength: 1, // This is optional and defaults to 10 if not used
+          pageLength: 5, // This is optional and defaults to 10 if not used
           pathPrefix: `/tag/${tag}`,
           buildPath: (index, pathPrefix) => (index > 1 ? `${pathPrefix}/page/${index}` : `${pathPrefix}`), // This is optional and this is the default
         });
