@@ -68,7 +68,7 @@ module.exports = {
       options: {
         fonts: [
           'Cardo:400,700',
-          'Oswald:700',
+          'Oswald:400,700',
           'Share+Tech+Mono',
         ],
       },
