@@ -67,8 +67,8 @@ module.exports = {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [
-          'Cardo:400,400i,700',
-          'Oswald:400,500,700',
+          'Cardo:400,700',
+          'Oswald:700',
           'Share+Tech+Mono',
         ],
       },
