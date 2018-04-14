@@ -62,18 +62,25 @@ exports[`PostsIndex Article should render an article link with tags 1`] = `
       <h2
         className="posts_index_article__title"
       >
-        <a
+        <GatsbyLink
           className="posts_index_article__title__link"
-          href="test"
+          to="test"
         >
           testTitle
-        </a>
+        </GatsbyLink>
       </h2>
       <span
         className="posts_index_article__meta"
       >
         testAuthor
-         on test1, test2
+        <TagLinks
+          tags={
+            Array [
+              "test1",
+              "test2",
+            ]
+          }
+        />
          | 
         <time
           dateTime="2018-04-30T05:00:00.000Z"

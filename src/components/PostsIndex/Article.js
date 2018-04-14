@@ -4,6 +4,8 @@ import Link from 'gatsby-link';
 
 import type { ArticleType } from '../../types/postsIndex';
 
+import TagLinks from './TagLinks';
+
 import styles from './PostsIndex.module.scss';
 
 const getDisplayDate = (date: Date) => date.toLocaleDateString('en-us', { day: 'numeric', month: 'short', year: 'numeric' });
@@ -35,7 +37,8 @@ const Article = ({ article }: {article: ArticleType }) => {
           </h2>
           <span className={styles.posts_index_article__meta}>
             {author}
-            {tags && ` on ${tags.join(', ')}`}
+            {tags && <TagLinks tags={tags} />}
+
             {' | '}
             <time dateTime={postDate.toISOString()}>{getDisplayDate(postDate)}</time>
           </span>

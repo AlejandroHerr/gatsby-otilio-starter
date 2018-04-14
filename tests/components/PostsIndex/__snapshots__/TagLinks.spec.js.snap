@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostsIndex TagLinks should render a link to the tag page for every tag 1`] = `
+<span>
+   on 
+  <span
+    key="tag1"
+  >
+    <GatsbyLink
+      to="tag/tag1"
+    >
+      tag1
+    </GatsbyLink>
+    , 
+  </span>
+  <span
+    key="tag2"
+  >
+    <GatsbyLink
+      to="tag/tag2"
+    >
+      tag2
+    </GatsbyLink>
+    , 
+  </span>
+  <span
+    key="tag3"
+  >
+    <GatsbyLink
+      to="tag/tag3"
+    >
+      tag3
+    </GatsbyLink>
+  </span>
+</span>
+`;

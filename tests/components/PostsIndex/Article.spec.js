@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import renderer from 'react-test-renderer';
 import GatsbyLink from 'gatsby-link';
 
 import Article from '../../../src/components/PostsIndex/Article';
@@ -34,15 +33,15 @@ describe('PostsIndex', () => {
       expect(article).toMatchSnapshot();
     });
     it('should render an article link with tags', () => {
-      const props = {
-        article: {
-          ...defaultProps.article,
-          tags: ['test1', 'test2'],
-        },
+      const articleProps = {
+        ...defaultProps.article,
+        tags: ['test1', 'test2'],
       };
-      const tree = renderer.create(<Article {...props} />).toJSON();
+      const { article, link } = setup({ article: articleProps });
 
-      expect(tree).toMatchSnapshot();
+      expect(link).toHaveLength(1);
+      expect(link.first().prop('to')).toBe(defaultProps.article.slug);
+      expect(article).toMatchSnapshot();
     });
   });
 });
