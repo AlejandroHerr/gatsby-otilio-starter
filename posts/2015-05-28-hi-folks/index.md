@@ -4,6 +4,7 @@ date: "2015-05-28T22:40:32.169Z"
 path: "/hi-folks/"
 cover: "postcover.jpg"
 author: "AlejandroHerr"
+tags: ["mock","ghost"]
 ---
 
 There are lots of powerful things you can do with the Ghost editor
