@@ -62,7 +62,6 @@ module.exports = {
         trackingId: config.gaTrackingId,
       },
     },
-    'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-google-fonts',
@@ -84,6 +83,7 @@ module.exports = {
                   siteUrl
                 }
               }
+
               allSitePage {
                 edges {
                   node {
@@ -97,17 +97,18 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-catch-links',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: "Misterious Lively Alejandro",
-        short_name: "AlejandroHerr",
-        start_url: "/",
-        background_color: "#ffffff",
-        theme_color: "#23af75",
-        display: "minimal-ui",
-        icon: "static/favicon.png" // This path is relative to the root of the site.
+        name: 'Misterious Lively Alejandro',
+        short_name: 'AlejandroHerr',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#23af75',
+        display: 'minimal-ui',
+        icon: 'static/favicon.png', // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-netlify',
+    'gatsby-plugin-offline',
   ],
 };
