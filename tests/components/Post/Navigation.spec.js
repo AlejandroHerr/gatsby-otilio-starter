@@ -1,7 +1,8 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import Navigation from '../../../src/components/Post/Navigation';
+import NavigationLink from '../../../src/components/Post/NavigationLink';
 
 const next = {
   excerpt: 'prevExcerpt',
@@ -15,27 +16,28 @@ const prev = {
   title: 'prevTitle',
 };
 
+const setup = (props = {}) => {
+  const navigation = shallow(<Navigation {...props} />);
+
+  return {
+    navigation,
+    navigationLink: navigation.find(NavigationLink),
+  };
+};
+
 describe('Post', () => {
   describe('Navigation', () => {
     it('should match the exact snapshot with prev and next', () => {
-      const tree = renderer.create(<Navigation next={next} prev={prev} />).toJSON();
+      const { navigation, navigationLink } = setup();
 
-      expect(tree).toMatchSnapshot();
+      expect(navigationLink).toHaveLength(0);
+      expect(navigation).toMatchSnapshot();
     });
-    it('should match the exact snapshot with prev', () => {
-      const tree = renderer.create(<Navigation prev={prev} />).toJSON();
+    it('should match the exact snapshot with prev and next', () => {
+      const { navigation, navigationLink } = setup({ next, prev });
 
-      expect(tree).toMatchSnapshot();
-    });
-    it('should match the exact snapshot with next', () => {
-      const tree = renderer.create(<Navigation next={next} />).toJSON();
-
-      expect(tree).toMatchSnapshot();
-    });
-    it('should match the exact snapshot with none', () => {
-      const tree = renderer.create(<Navigation />).toJSON();
-
-      expect(tree).toMatchSnapshot();
+      expect(navigationLink).toHaveLength(2);
+      expect(navigation).toMatchSnapshot();
     });
   });
 });

@@ -5,5 +5,6 @@
   ],
   "flowCommandPath": "./node_modules/.bin/flow",
   "includeGlob": [ "src/**/*.js" ],
-  "threshold": 90
+  "threshold": 90,
+  "type": ["html","text"]
 }

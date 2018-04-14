@@ -14,17 +14,17 @@ type StateType = {
   progress: number,
 };
 
-const mapPropsToStyle = ({ progress, speed }: {progress: number, speed: number}) => ({
+export const defaultMapPropsToStyle = ({ progress, speed }: {progress: number, speed: number}) => ({
   width: `${progress}%`,
   transition: `transform ${speed}ms ease`,
 });
 
-export default class ProgressSection extends PureComponent<PropsType, StateType> {
+export default class ProgressControl extends PureComponent<PropsType, StateType> {
   container: ?HTMLDivElement;
   calculateProgress: () => void;
 
-  static defaultProps = {
-    speed: 200,
+  static defaultProps: {
+    speed: number,
   }
 
   constructor(props: PropsType) {
@@ -70,10 +70,14 @@ export default class ProgressSection extends PureComponent<PropsType, StateType>
           finished={finished}
           progress={progress}
           speed={speed}
-          mapPropsToStyle={mapPropsToStyle}
+          mapPropsToStyle={defaultMapPropsToStyle}
         />
         {children}
       </div>
     );
   }
 }
+
+ProgressControl.defaultProps = {
+  speed: 200,
+};

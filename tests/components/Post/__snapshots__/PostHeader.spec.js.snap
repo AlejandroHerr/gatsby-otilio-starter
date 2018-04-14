@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post PostHeader should render a HeroHeader 1`] = `
+<HeroHeader
+  className=""
+  image={null}
+>
+  <h1
+    className="post_header__title"
+  >
+    Test title
+  </h1>
+  <span
+    className="post_header__body"
+  >
+    <GatsbyLink
+      className="post_header__author"
+      to="/"
+    >
+      author
+    </GatsbyLink>
+     | 
+    <span>
+      <ByteIcon
+        bold={true}
+        className=""
+        icon="clock"
+      />
+       
+      1
+    </span>
+     | 
+    <time
+      dateTime="2018-04-30T05:00:00.000Z"
+    >
+      Apr 30, 2018
+    </time>
+  </span>
+</HeroHeader>
+`;

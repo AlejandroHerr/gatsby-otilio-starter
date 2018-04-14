@@ -3,7 +3,7 @@
 exports[`Post Tag should match the exact snapshot 1`] = `
 <a
   className="post_tags__tag"
-  to="/tags/test"
+  href="/tags/test"
 >
   test
 </a>

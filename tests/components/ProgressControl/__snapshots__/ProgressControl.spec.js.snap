@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressControl ProgressControl should render ProgressControl 1`] = `
+<ProgressControl
+  finished={false}
+  mapPropsToStyle={[Function]}
+  progress={0}
+  speed={10}
+>
+  <div>
+    <ProgressControlBar
+      finished={false}
+      mapPropsToStyle={[Function]}
+      progress={0}
+      speed={10}
+    >
+      <div
+        className="progress_control_bar progress_control_bar--hide"
+      >
+        <div
+          className="progress_control_bar__bar"
+          style={
+            Object {
+              "transition": "transform 10ms ease",
+              "width": "0%",
+            }
+          }
+        />
+      </div>
+    </ProgressControlBar>
+    <TestComponent>
+      <div
+        id="testComponent"
+      />
+    </TestComponent>
+  </div>
+</ProgressControl>
+`;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import renderer from 'react-test-renderer';
 
 import Img from 'gatsby-image';
 
@@ -42,13 +41,14 @@ const setup = (props = {}) => {
 describe('Post', () => {
   describe('Author', () => {
     it('should render a Gatsby Image', () => {
-      const { image } = setup();
+      const { author, image } = setup();
 
       expect(image).toHaveLength(1);
       expect(image.prop('sizes')).toBe(defaultProps.author.avatar.childImageSharp.sizes);
+      expect(author).toMatchSnapshot();
     });
     it('should render SimpleIcons for every social icon', () => {
-      const { socialLinks } = setup();
+      const { author, socialLinks } = setup();
 
       expect(socialLinks).toHaveLength(defaultProps.author.social.length);
 
@@ -58,11 +58,7 @@ describe('Post', () => {
         expect(socialLink.prop('service')).toBe(link.service);
         expect(socialLink.prop('url')).toBe(link.url);
       });
-    });
-    it('should match the exact snapshot', () => {
-      const tree = renderer.create(<Author {...defaultProps} />).toJSON();
-
-      expect(tree).toMatchSnapshot();
+      expect(author).toMatchSnapshot();
     });
   });
 });

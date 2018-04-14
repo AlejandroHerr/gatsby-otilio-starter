@@ -1,168 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Post Navigation should match the exact snapshot with next 1`] = `
-<aside
-  className="post_navigation"
->
-  <a
-    className="post_navigation__link post_navigation__next"
-    to="prevPath"
-  >
-    <section
-      className="post_navigation__teaser"
-    >
-      <div
-        className="post_navigation__icon"
-      >
-        <svg
-          className="byte_icon byte_icon__chevron_left"
-          viewBox="0 0 32 32"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path />
-        </svg>
-      </div>
-      <h2
-        className="post_navigation__title"
-      >
-        prevTitle
-      </h2>
-      <p
-        className="post_navigation__excerpt"
-      >
-        prevExcerpt
-      </p>
-    </section>
-  </a>
-  <div
-    className="post_navigation__clear"
-  />
-  <div
-    className="post_navigation__separator"
-  />
-</aside>
-`;
-
-exports[`Post Navigation should match the exact snapshot with none 1`] = `
-<aside
-  className="post_navigation"
->
-  <div
-    className="post_navigation__clear"
-  />
-  <div
-    className="post_navigation__separator"
-  />
-</aside>
-`;
-
-exports[`Post Navigation should match the exact snapshot with prev 1`] = `
-<aside
-  className="post_navigation"
->
-  <a
-    className="post_navigation__link post_navigation__prev"
-    to="prevPath"
-  >
-    <section
-      className="post_navigation__teaser"
-    >
-      <div
-        className="post_navigation__icon"
-      >
-        <svg
-          className="byte_icon byte_icon__chevron_right"
-          viewBox="0 0 32 32"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path />
-        </svg>
-      </div>
-      <h2
-        className="post_navigation__title"
-      >
-        prevTitle
-      </h2>
-      <p
-        className="post_navigation__excerpt"
-      >
-        prevExcerpt
-      </p>
-    </section>
-  </a>
-  <div
-    className="post_navigation__clear"
-  />
-  <div
-    className="post_navigation__separator"
-  />
-</aside>
-`;
-
 exports[`Post Navigation should match the exact snapshot with prev and next 1`] = `
 <aside
   className="post_navigation"
 >
-  <a
-    className="post_navigation__link post_navigation__next"
-    to="prevPath"
-  >
-    <section
-      className="post_navigation__teaser"
-    >
-      <div
-        className="post_navigation__icon"
-      >
-        <svg
-          className="byte_icon byte_icon__chevron_left"
-          viewBox="0 0 32 32"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path />
-        </svg>
-      </div>
-      <h2
-        className="post_navigation__title"
-      >
-        prevTitle
-      </h2>
-      <p
-        className="post_navigation__excerpt"
-      >
-        prevExcerpt
-      </p>
-    </section>
-  </a>
-  <a
-    className="post_navigation__link post_navigation__prev"
-    to="prevPath"
-  >
-    <section
-      className="post_navigation__teaser"
-    >
-      <div
-        className="post_navigation__icon"
-      >
-        <svg
-          className="byte_icon byte_icon__chevron_right"
-          viewBox="0 0 32 32"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path />
-        </svg>
-      </div>
-      <h2
-        className="post_navigation__title"
-      >
-        prevTitle
-      </h2>
-      <p
-        className="post_navigation__excerpt"
-      >
-        prevExcerpt
-      </p>
-    </section>
-  </a>
+  <div
+    className="post_navigation__clear"
+  />
+  <div
+    className="post_navigation__separator"
+  />
+</aside>
+`;
+
+exports[`Post Navigation should match the exact snapshot with prev and next 2`] = `
+<aside
+  className="post_navigation"
+>
+  <NavigationLink
+    className="post_navigation__next"
+    excerpt="prevExcerpt"
+    icon="chevron_left"
+    path="prevPath"
+    title="prevTitle"
+  />
+  <NavigationLink
+    className="post_navigation__prev"
+    excerpt="prevExcerpt"
+    icon="chevron_right"
+    path="prevPath"
+    title="prevTitle"
+  />
   <div
     className="post_navigation__clear"
   />

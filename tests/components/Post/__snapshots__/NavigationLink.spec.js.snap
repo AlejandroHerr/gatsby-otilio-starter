@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Post NavigationLink should match the exact snapshot 1`] = `
-<a
+exports[`Post NavigationLink should render a NavigationLink with a Gatsby Link 1`] = `
+<GatsbyLink
   className="post_navigation__link testClassName"
   to="testPath"
 >
@@ -11,13 +11,11 @@ exports[`Post NavigationLink should match the exact snapshot 1`] = `
     <div
       className="post_navigation__icon"
     >
-      <svg
-        className="byte_icon byte_icon__testIcon"
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path />
-      </svg>
+      <ByteIcon
+        bold={false}
+        className=""
+        icon="testIcon"
+      />
     </div>
     <h2
       className="post_navigation__title"
@@ -30,5 +28,5 @@ exports[`Post NavigationLink should match the exact snapshot 1`] = `
       testExcerpt
     </p>
   </section>
-</a>
+</GatsbyLink>
 `;

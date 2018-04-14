@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeroCover HeroHeader should render a HeroImage 1`] = `
+<header
+  className="hero_header hero_header--has_image"
+>
+  <div
+    className="hero_header__inner"
+  >
+    <TestComponent />
+    <HeroImage
+      image={
+        Object {
+          "src": "src",
+        }
+      }
+    />
+  </div>
+</header>
+`;
+
+exports[`HeroCover HeroHeader should render without HeroImage 1`] = `
+<header
+  className="hero_header"
+>
+  <div
+    className="hero_header__inner"
+  >
+    <TestComponent />
+  </div>
+</header>
+`;

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`icons SimpleIcon should render a SimpleIcon with custom options 1`] = `
+<svg
+  className="simple_icon simple_icon__testBrand testClassName"
+  style={
+    Object {
+      "color": "black",
+    }
+  }
+  viewBox="0 0 24 24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path />
+</svg>
+`;
+
+exports[`icons SimpleIcon should render a default SimpleIcon 1`] = `
+<svg
+  className="simple_icon simple_icon__testBrand"
+  style={Object {}}
+  viewBox="0 0 24 24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path />
+</svg>
+`;

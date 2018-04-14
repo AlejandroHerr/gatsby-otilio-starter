@@ -2,6 +2,7 @@ module.exports = {
   parser: 'babel-eslint',
   extends: "airbnb",
   rules: {
+    'function-paren-newline': ["error", "consistent"],
     "react/jsx-filename-extension": ["js","jsx"],
     "jsx-a11y/anchor-is-valid": [ "error", {
       specialLink: [ "hrefLeft", "hrefRight" ],

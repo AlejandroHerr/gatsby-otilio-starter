@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostsIndex should render a PostsIndex 1`] = `
+<div>
+  <MainHeader
+    description="Test Description"
+    image={
+      Object {
+        "src": "testSrc",
+      }
+    }
+    title="Test Title"
+    url="Test Url"
+  />
+  <main
+    role="main"
+  >
+    <Article
+      article={
+        Object {
+          "slug": "slug1",
+        }
+      }
+      key="slug1"
+    />
+    <Article
+      article={
+        Object {
+          "slug": "slug2",
+        }
+      }
+      key="slug2"
+    />
+    <Pagination
+      page={1}
+      pageCount={2}
+      pathPrefix="prefix"
+    />
+  </main>
+</div>
+`;
