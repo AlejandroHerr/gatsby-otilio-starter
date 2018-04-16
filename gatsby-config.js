@@ -1,19 +1,6 @@
 const config = require('./config');
 
 module.exports = {
-  siteMetadata: {
-    title: 'Misterious Lively Alejandro',
-    author: 'AlejandroHerr',
-    cover: './data/avatar.png',
-    siteUrl: 'http://alejandroherr.io',
-    authors: [
-      {
-        name: 'AlejandroHerr',
-        fullName: 'Alejandro Hernandez',
-        description: '<p>sexy mamasita</p>',
-      },
-    ],
-  },
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
