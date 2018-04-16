@@ -19,12 +19,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   return new Promise((resolve) => {
     resolve(graphql(`
       {
-        site {
-          siteMetadata {
-            title
-            author
-          }
-        }
         posts: allMarkdownRemark(
           limit: 1000,
           filter: { fileAbsolutePath: { regex: "/(posts)/.*.md$/" } },
