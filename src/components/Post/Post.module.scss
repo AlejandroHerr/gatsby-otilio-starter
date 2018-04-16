@@ -76,8 +76,8 @@
 
 .post_author__avatar {
   position: relative;
-  width: 5em;
-  height: 5em;
+  width: 6em;
+  height: 6em;
   margin: -.5em 0 0 1.5em;
   border-radius: 10em;
   float: left;
@@ -94,14 +94,14 @@
 .post_author__avatar img {
   width: 100%;
   margin: auto;
-  border-radius: 10em;
+  border-radius: 11em;
   box-sizing: border-box;
 }
 
 .post_author__bio {
   padding-left: 10em;
   font-family: $header-font-familiy;
-  font-size: .75em;
+  font-size: .85em;
   line-height: 1.334em;
 
   @media only screen and (max-width: 480px) {
