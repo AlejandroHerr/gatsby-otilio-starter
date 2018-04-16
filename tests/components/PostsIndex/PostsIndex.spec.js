@@ -14,6 +14,8 @@ const defaultProps = {
     {
       slug: 'slug2',
     }],
+    first: true,
+    last: false,
     index: 1,
     pageCount: 2,
     pathPrefix: 'prefix',

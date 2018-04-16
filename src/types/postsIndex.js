@@ -11,17 +11,16 @@ export type ArticleType = {
 };
 
 export type PaginationType = {
-  page: number,
+  first: boolean,
+  last: boolean,
+  index: number,
   pageCount: number,
   pathPrefix: string,
 };
 
 export type PathContextType = {
   group: Array<ArticleType>,
-  index: number,
-  pageCount: number,
-  pathPrefix: string,
-};
+} & PaginationType;
 
 export type SiteInfoType = {
   title: string,

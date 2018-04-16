@@ -9,28 +9,30 @@ import ByteIcon from '../icons/ByteIcon';
 
 import styles from './PostsIndex.module.scss';
 
-const Pagination = ({ page, pageCount, pathPrefix }: PaginationType) => (
+const Pagination = ({
+  first, last, index, pageCount, pathPrefix,
+}: PaginationType) => (
   <nav className={styles.posts_index_pagination}>
     <div className={styles.posts_index_pagination__inner}>
-      {page > 1 &&
+      {!first &&
         <Link
           className={classnames(
             styles.posts_index_pagination__link,
             styles.posts_index_pagination__next,
           )}
-          to={page > 2 ? `${pathPrefix}/page/${page - 1}` : `${pathPrefix}`}
+          to={index > 2 ? `${pathPrefix}/page/${index - 1}` : `${pathPrefix}`}
         >
           <span className={styles.posts_index_pagination__label}><ByteIcon icon="chevron_left" /> Newer Posts</span>
         </Link>
       }
-      <span className={styles.posts_index_pagination__info}>{`Page ${page} of ${pageCount}`}</span>
-      {page < pageCount &&
+      <span className={styles.posts_index_pagination__info}>{`Page ${index} of ${pageCount}`}</span>
+      {!last &&
         <Link
           className={classnames(
             styles.posts_index_pagination__link,
             styles.posts_index_pagination__prev,
           )}
-          to={`${pathPrefix}/page/${page + 1}`}
+          to={`${pathPrefix}/page/${index + 1}`}
         >
           <span className={styles.posts_index_pagination__label}>Older Posts <ByteIcon icon="chevron_right" /></span>
         </Link>

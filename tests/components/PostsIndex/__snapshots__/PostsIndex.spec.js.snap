@@ -32,7 +32,9 @@ exports[`PostsIndex should render a PostsIndex 1`] = `
       key="slug2"
     />
     <Pagination
-      page={1}
+      first={true}
+      index={1}
+      last={false}
       pageCount={2}
       pathPrefix="prefix"
     />

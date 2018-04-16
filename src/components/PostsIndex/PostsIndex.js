@@ -15,6 +15,8 @@ type PropsType = {
 const PostsIndex = ({ siteInfo, pathContext }: PropsType) => {
   const {
     group: posts,
+    first,
+    last,
     index,
     pageCount,
     pathPrefix,
@@ -35,7 +37,13 @@ const PostsIndex = ({ siteInfo, pathContext }: PropsType) => {
             article={article}
           />
         ))}
-        <Pagination page={index} pageCount={pageCount} pathPrefix={pathPrefix} />
+        <Pagination
+          first={first}
+          last={last}
+          index={index}
+          pageCount={pageCount}
+          pathPrefix={pathPrefix}
+        />
       </main>
     </div>
   );
