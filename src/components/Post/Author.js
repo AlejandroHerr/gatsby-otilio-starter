@@ -11,7 +11,7 @@ import styles from './Post.module.scss';
 
 const Author = ({ author }: {author: AuthorType}) => (
   <aside className={styles.post_author}>
-    <figure className={`${styles.post_author__avatar} ${styles.avatar}`}>
+    <figure className={`${styles.post_author__avatar}`}>
       <Img sizes={author.avatar.childImageSharp.sizes} />
     </figure>
     <div className={styles.post_author__bio}>

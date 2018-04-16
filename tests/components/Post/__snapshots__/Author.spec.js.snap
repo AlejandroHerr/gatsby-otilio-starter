@@ -5,7 +5,7 @@ exports[`Post Author should render SimpleIcons for every social icon 1`] = `
   className="post_author"
 >
   <figure
-    className="post_author__avatar avatar"
+    className="post_author__avatar"
   >
     <Image
       Tag="div"
@@ -64,7 +64,7 @@ exports[`Post Author should render a Gatsby Image 1`] = `
   className="post_author"
 >
   <figure
-    className="post_author__avatar avatar"
+    className="post_author__avatar"
   >
     <Image
       Tag="div"
