@@ -2,6 +2,8 @@ const path = require('path');
 const slugify = require('slug');
 const createPaginatedPages = require('gatsby-paginate');
 
+const { createTagIndexes } = require('./src/gatsbyNode/createTagIndexes');
+
 const postNavPreview = ({ node }) => {
   const { previewExcerpt: excerpt, fields, frontmatter } = node;
 
@@ -33,9 +35,25 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               }
               frontmatter {
                 author
-                date(formatString: "DD MMMM, YYYY")
+                date
                 title
                 tags
+              }
+            }
+          }
+        }
+        tagCovers: allImageSharp(filter:{ id: { regex:"/data/tags/.*.[png jpeg]/" }}){
+          edges {
+            node {
+              id
+              sizes(maxWidth: 2880) {
+                aspectRatio
+                base64
+                sizes
+                src
+                srcSet
+                srcSetWebp
+                srcWebp
               }
             }
           }
@@ -47,7 +65,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       ? Promise.reject(result.errors)
       : result))
     .then(({ data }) => {
-      const { posts } = data;
+      const { posts, tagCovers } = data;
 
       const postsIndex = posts.edges.map(({ node }) => {
         const { excerpt, fields, frontmatter } = node;
@@ -56,6 +74,11 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           excerpt,
           slug: fields.slug,
           ...frontmatter,
+          tags: frontmatter.tags && frontmatter.tags.map(tag => ({
+            tag,
+            tagSlug: tag.toLowerCase().replace(' ', ''),
+          })),
+
         };
       });
 
@@ -67,26 +90,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         buildPath: index => (index > 1 ? `/page/${index}` : '/'), // This is optional and this is the default
       });
 
-      const postsByTag = postsIndex.reduce((listByTag, post) => (!post.tags || !post.tags.length
-        ? listByTag
-        : post.tags.reduce((listsOfPosts, tag) => ({
-          ...listsOfPosts,
-          [tag]: listsOfPosts[tag]
-            ? listsOfPosts[tag].concat(post)
-            : [post],
-
-        }), listByTag)), {});
-
-      Object.entries(postsByTag).forEach(([tag, listOfPosts]) => {
-        createPaginatedPages({
-          edges: listOfPosts,
-          createPage,
-          pageTemplate: 'src/templates/PostsIndexTemplate.js',
-          pageLength: 5, // This is optional and defaults to 10 if not used
-          pathPrefix: `/tags/${tag}`,
-          buildPath: (index, pathPrefix) => (index > 1 ? `${pathPrefix}/page/${index}` : `${pathPrefix}`), // This is optional and this is the default
-        });
-      });
+      createTagIndexes(postsIndex, tagCovers.edges, createPage);
 
       posts.edges.forEach(({ node }, idx, edges) => createPage({
         path: node.fields.slug,
@@ -97,7 +101,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           slug: node.fields.slug,
         },
       }));
-    });
+    })
+    .catch(console.error);
 };
 
 const createSlug = (date, title) => {
