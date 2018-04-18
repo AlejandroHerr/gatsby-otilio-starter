@@ -3,7 +3,7 @@ title: My Second Post!
 date: "2018-03-03T12:49:47.602Z"
 path: "/my-second-post/"
 author: "AlejandroHerr"
-tags: ["animals", "Chicago", "zoos"]
+tags: ["animals", "Barcelona", "Raspberry Pi"]
 ---
 
 There are lots of powerful things you can do with the Ghost editor

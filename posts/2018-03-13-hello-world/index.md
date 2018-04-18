@@ -2,7 +2,7 @@
 title: Hello World
 date: "2018-04-04T19:43:39.435Z"
 author: "AlejandroHerr"
-tags: ["mock","ghost"]
+tags: ["mock","Barcelona"]
 ---
 
 Ghost uses a language called **Markdown** to format text.
