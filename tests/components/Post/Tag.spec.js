@@ -1,18 +1,31 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
+import GatsbyLink from 'gatsby-link';
 
 import Tag from '../../../src/components/Post/Tag';
 
 const defaultProps = {
-  tag: 'test',
+  tag: 'test tag',
+};
+
+const setup = (props = {}) => {
+  const tag = shallow(<Tag {...defaultProps} {...props} />);
+
+  return {
+    tag,
+    link: tag.find(GatsbyLink),
+  };
 };
 
 describe('Post', () => {
   describe('Tag', () => {
     it('should match the exact snapshot', () => {
-      const tree = renderer.create(<Tag {...defaultProps} />).toJSON();
+      const { tag, link } = setup();
 
-      expect(tree).toMatchSnapshot();
+      expect(link).toHaveLength(1);
+      expect(link.prop('children')).toBe(defaultProps.tag);
+      expect(link.prop('to')).toBe(`/tags/${defaultProps.tag.toLowerCase().replace(' ', '')}`);
+      expect(tag).toMatchSnapshot();
     });
   });
 });

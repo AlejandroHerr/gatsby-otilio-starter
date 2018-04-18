@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Post Tag should match the exact snapshot 1`] = `
-<a
+<GatsbyLink
   className="post_tags__tag"
-  href="/tags/test"
+  to="/tags/testtag"
 >
-  test
-</a>
+  test tag
+</GatsbyLink>
 `;
