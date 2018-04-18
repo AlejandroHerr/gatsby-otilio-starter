@@ -5,7 +5,13 @@ import GatsbyLink from 'gatsby-link';
 import TagLinks from '../../../src/components/PostsIndex/TagLinks';
 
 const defaultProps = {
-  tags: ['tag1', 'tag2', 'tag3'],
+  tags: [{
+    tag: 'Tag 1',
+    tagSlug: 'tag1',
+  }, {
+    tag: 'Tag 2',
+    tagSlug: 'tag2',
+  }],
 };
 
 const setup = (props = {}) => {
@@ -24,8 +30,8 @@ describe('PostsIndex', () => {
 
 
       expect(link).toHaveLength(defaultProps.tags.length);
-      defaultProps.tags.forEach((tag, idx) => {
-        expect(link.at(idx).prop('to')).toBe(`/tags/${tag}`);
+      defaultProps.tags.forEach(({ tag, tagSlug }, idx) => {
+        expect(link.at(idx).prop('to')).toBe(`/tags/${tagSlug}`);
         expect(link.at(idx).prop('children')).toBe(tag);
       });
       expect(tagLinks).toMatchSnapshot();

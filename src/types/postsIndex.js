@@ -1,12 +1,17 @@
 // @flow
 import type { ChildImageSharpType } from './gatsby';
 
+export type TagType = {
+  tag: string,
+  tagSlug: string,
+};
+
 export type ArticleType = {
   author: string,
   date: string,
   excerpt: string,
   slug: string,
-  tags?: Array<string>,
+  tags?: Array<TagType>,
   title: string,
 };
 

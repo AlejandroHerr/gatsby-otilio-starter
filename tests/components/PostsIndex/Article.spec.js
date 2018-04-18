@@ -35,7 +35,13 @@ describe('PostsIndex', () => {
     it('should render an article link with tags', () => {
       const articleProps = {
         ...defaultProps.article,
-        tags: ['test1', 'test2'],
+        tags: [{
+          tag: 'Tag 1',
+          tagSlug: 'tag1',
+        }, {
+          tag: 'Tag 2',
+          tagSlug: 'tag2',
+        }],
       };
       const { article, link } = setup({ article: articleProps });
 

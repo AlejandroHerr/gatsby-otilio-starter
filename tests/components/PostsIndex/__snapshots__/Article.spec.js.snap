@@ -76,8 +76,14 @@ exports[`PostsIndex Article should render an article link with tags 1`] = `
         <TagLinks
           tags={
             Array [
-              "test1",
-              "test2",
+              Object {
+                "tag": "Tag 1",
+                "tagSlug": "tag1",
+              },
+              Object {
+                "tag": "Tag 2",
+                "tagSlug": "tag2",
+              },
             ]
           }
         />

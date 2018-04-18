@@ -2,20 +2,22 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
+import type { TagType } from '../../types/postsIndex';
+
 type PropsType = {
-  tags: Array<string>,
+  tags: Array<TagType>,
 };
 
 const TagLinks = ({ tags }: PropsType) => (
-  <span>{' on '}{tags.map((tag, idx) => (idx < (tags.length - 1)
+  <span>{' on '}{tags.map(({ tag, tagSlug }, idx) => (idx < (tags.length - 1)
   ? (
-    <span key={tag}>
-      <Link to={`/tags/${tag}`}>{tag}</Link>{', '}
+    <span key={tagSlug}>
+      <Link to={`/tags/${tagSlug}`}>{tag}</Link>{', '}
     </span>
   )
   : (
     <span key={tag}>
-      <Link to={`/tags/${tag}`}>{tag}</Link>
+      <Link to={`/tags/${tagSlug}`}>{tag}</Link>
     </span>
   )))}
   </span>
