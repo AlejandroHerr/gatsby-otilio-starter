@@ -1,36 +1,40 @@
 const createPaginatedPages = require('gatsby-paginate');
 
 const createTagIndex = (tag, listOfPosts, tagCovers, createPage) => {
-  const tagSlug = tag.toLowerCase().replace(' ', '');
-
-  const cover = tagCovers.find(({ node }) => new RegExp(tagSlug).test(node.id));
+  const cover = tagCovers.find(({ node }) => new RegExp(tag.tagSlug).test(node.id));
 
   createPaginatedPages({
     edges: listOfPosts,
     createPage,
-    pageTemplate: 'src/templates/PostsIndexByTagTemplate.js',
+    pageTemplate: 'src/templates/TagIndexTemplate.js',
     pageLength: 5, // This is optional and defaults to 10 if not used
-    pathPrefix: `/tags/${tagSlug}`,
+    pathPrefix: `/tags/${tag.tagSlug}`,
     buildPath: (index, pathPrefix) => (index > 1 ? `${pathPrefix}/page/${index}` : `${pathPrefix}`), // This is optional and this is the default
     context: {
       cover: (cover && cover.node) || null,
-      tag,
+      tag: tag.tag,
       total: listOfPosts.length,
     },
   });
 };
 
+const getTagList = posts => posts.map(({ tags }) => tags || null)
+  .filter(tags => !!tags)
+  .reduce((list, group) => group.reduce((partialList, currentTag) =>
+    (partialList.find(tag => tag.tagSlug === currentTag.tagSlug)
+      ? partialList
+      : partialList.concat(currentTag)), list), []);
+
 exports.createTagIndexes = (postsIndex, tagCovers, createPage) => {
-  const postsByTag = postsIndex.reduce((listByTag, post) => (!post.tags || !post.tags.length
-    ? listByTag
-    : post.tags.reduce((listsOfPosts, { tagSlug }) => ({
-      ...listsOfPosts,
-      [tagSlug]: listsOfPosts[tagSlug]
-        ? listsOfPosts[tagSlug].concat(post)
-        : [post],
+  // const tagList = postsIndex.map(({ tags }) => tags || null).filter(tags => !!tags);
+  const tagList = getTagList(postsIndex);
+  const postsByTag = tagList.reduce((list, currentTag) =>
+    list.concat([postsIndex.filter(({ tags }) =>
+      (tags && tags.find(tag => tag.tagSlug === currentTag.tagSlug))
+      || false)]), []);
 
-    }), listByTag)), {});
-
-  Object.entries(postsByTag)
-    .forEach(([tag, listOfPosts]) => createTagIndex(tag, listOfPosts, tagCovers, createPage));
+  tagList.forEach((tag, idx) => {
+    // console.log('postsByTag[idx]', idx, postsByTag[idx]);
+    createTagIndex(tag, postsByTag[idx], tagCovers, createPage);
+  });
 };
