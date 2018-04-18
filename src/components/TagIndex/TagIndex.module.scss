@@ -1,0 +1,36 @@
+@import '../../colors';
+@import '../../fonts';
+
+.tag_index_header__title, {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  color: $color-black;
+  font-size: 2.5em;
+  font-weight: 700;
+  line-height: 1em;
+  text-decoration: none;
+  z-index: 10;
+
+  a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+  }
+}
+
+.tag_index_header__body {
+  display: block;
+  position: relative;
+  margin: .25em 0;
+  padding: 0;
+  font-size: 1em;
+  line-height: 1.5em;
+  z-index: 10;
+}
+
+.tag_index_header__title--has_image,
+.tag_index_header__body--has_image {
+  color: $color-white;
+}

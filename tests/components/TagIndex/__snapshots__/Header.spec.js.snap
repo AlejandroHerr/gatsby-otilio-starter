@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagIndex Header should render a HeroHeader 1`] = `
+<HeroHeader
+  className="tag_index_header"
+  image={null}
+>
+  <h1
+    className="tag_index_header__title"
+  >
+    Test title
+  </h1>
+  <span
+    className="tag_index_header__body"
+  >
+    50 posts in this category
+  </span>
+</HeroHeader>
+`;
+
+exports[`TagIndex Header should render a HeroHeader 2`] = `
+<HeroHeader
+  className="tag_index_header tag_index_header--has_image"
+  image={
+    Object {
+      "size": Object {
+        "src": "testSrc",
+      },
+    }
+  }
+>
+  <h1
+    className="tag_index_header__title tag_index_header__title--has_image"
+  >
+    Test title
+  </h1>
+  <span
+    className="tag_index_header__body tag_index_header__body--has_image"
+  >
+    50 posts in this category
+  </span>
+</HeroHeader>
+`;
