@@ -27,7 +27,6 @@ const PostsIndex = ({ siteInfo, pathContext }: PropsType) => {
       <Header
         image={siteInfo.cover.childImageSharp.sizes}
         title={siteInfo.title}
-        url={siteInfo.url}
         description={siteInfo.description}
       />
       <main role="main">

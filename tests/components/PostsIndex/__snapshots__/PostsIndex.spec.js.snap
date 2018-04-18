@@ -10,7 +10,6 @@ exports[`PostsIndex should render a PostsIndex 1`] = `
       }
     }
     title="Test Title"
-    url="Test Url"
   />
   <main
     role="main"

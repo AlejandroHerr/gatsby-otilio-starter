@@ -10,13 +10,12 @@ import styles from './PostsIndex.module.scss';
 
 type PropsType = {
   description: string,
-  image?: SizeImageSharpType,
+  image: SizeImageSharpType,
   title: string,
-  url: string,
 };
 
 const MainHeader = ({
-  description, image, title, url,
+  description, image, title,
 }: PropsType) => (
   <HeroHeader
     className={classnames(styles.posts_index_header, {
@@ -29,7 +28,7 @@ const MainHeader = ({
           [styles['posts_index_header__title--has_image']]: !!image,
         })}
     >
-      <a className={styles.posts_index_header__title_link} href={url}>{title}</a>
+      {title}
     </h1>
     <span
       className={classnames(styles.posts_index_header__body, {
@@ -40,10 +39,5 @@ const MainHeader = ({
     </span>
   </HeroHeader>
 );
-
-
-MainHeader.defaultProps = {
-  image: null,
-};
 
 export default MainHeader;

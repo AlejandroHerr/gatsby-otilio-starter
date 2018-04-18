@@ -6,8 +6,12 @@ import HeroHeader from '../../../src/components/HeroHeader';
 
 const defaultProps = {
   description: 'Test description',
+  image: {
+    size: {
+      src: 'testSrc',
+    },
+  },
   title: 'Test title',
-  url: 'Test url',
 };
 
 const setup = (props = {}) => {
@@ -24,6 +28,10 @@ describe('PostsIndex', () => {
     it('should render a HeroHeader', () => {
       const { header, heroHeader } = setup();
 
+      expect(header.find('h1')).toHaveLength(1);
+      expect(header.find('h1').text()).toBe(defaultProps.title);
+      expect(header.find('span')).toHaveLength(1);
+      expect(header.find('span').text()).toBe(defaultProps.description);
       expect(heroHeader).toHaveLength(1);
       expect(header).toMatchSnapshot();
     });

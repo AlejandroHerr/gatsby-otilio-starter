@@ -2,21 +2,22 @@
 
 exports[`PostsIndex Header should render a HeroHeader 1`] = `
 <HeroHeader
-  className="posts_index_header"
-  image={null}
+  className="posts_index_header posts_index_header--has_image"
+  image={
+    Object {
+      "size": Object {
+        "src": "testSrc",
+      },
+    }
+  }
 >
   <h1
-    className="posts_index_header__title"
+    className="posts_index_header__title posts_index_header__title--has_image"
   >
-    <a
-      className="posts_index_header__title_link"
-      href="Test url"
-    >
-      Test title
-    </a>
+    Test title
   </h1>
   <span
-    className="posts_index_header__body"
+    className="posts_index_header__body posts_index_header__body--has_image"
   >
     Test description
   </span>
