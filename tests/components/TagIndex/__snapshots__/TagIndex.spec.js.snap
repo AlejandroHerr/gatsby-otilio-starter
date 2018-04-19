@@ -40,7 +40,11 @@ exports[`TagIndex should render a TagIndex 1`] = `
 exports[`TagIndex should render a TagIndex with cover 1`] = `
 <div>
   <MainHeader
-    image={null}
+    image={
+      Object {
+        "src": "testSrc",
+      }
+    }
     title="Test Tag"
     total={10}
   />

@@ -60,4 +60,28 @@ describe('TagIndex', () => {
     expect(pagination).toHaveLength(1);
     expect(tagIndex).toMatchSnapshot();
   });
+  it('should render a TagIndex with cover', () => {
+    const sizes = {
+      src: 'testSrc',
+    };
+    const {
+      tagIndex, header, article, pagination,
+    } = setup({
+      pathContext: {
+        ...defaultProps.pathContext,
+        additionalContext: {
+          ...defaultProps.pathContext.additionalContext,
+          cover: {
+            sizes,
+          },
+        },
+      },
+    });
+
+    expect(header).toHaveLength(1);
+    expect(header.prop('image')).toBe(sizes);
+    expect(article).toHaveLength(defaultProps.pathContext.group.length);
+    expect(pagination).toHaveLength(1);
+    expect(tagIndex).toMatchSnapshot();
+  });
 });
