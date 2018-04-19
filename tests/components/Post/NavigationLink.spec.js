@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import GatsbyLink from 'gatsby-link';
+import Link from 'gatsby-link';
 
 import NavigationLink from '../../../src/components/Post/NavigationLink';
 
@@ -17,7 +17,7 @@ const setup = (props = {}) => {
 
   return {
     navigationLink,
-    link: navigationLink.find(GatsbyLink),
+    link: navigationLink.find(Link),
   };
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import GatsbyLink from 'gatsby-link';
+import Link from 'gatsby-link';
 
 import Tag from '../../../src/components/Post/Tag';
 
@@ -13,7 +13,7 @@ const setup = (props = {}) => {
 
   return {
     tag,
-    link: tag.find(GatsbyLink),
+    link: tag.find(Link),
   };
 };
 

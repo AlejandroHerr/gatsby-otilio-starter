@@ -36,3 +36,40 @@ exports[`TagIndex should render a TagIndex 1`] = `
   </main>
 </div>
 `;
+
+exports[`TagIndex should render a TagIndex with cover 1`] = `
+<div>
+  <MainHeader
+    image={null}
+    title="Test Tag"
+    total={10}
+  />
+  <main
+    role="main"
+  >
+    <Article
+      article={
+        Object {
+          "slug": "slug1",
+        }
+      }
+      key="slug1"
+    />
+    <Article
+      article={
+        Object {
+          "slug": "slug2",
+        }
+      }
+      key="slug2"
+    />
+    <Pagination
+      first={true}
+      index={1}
+      last={false}
+      pageCount={2}
+      pathPrefix="prefix"
+    />
+  </main>
+</div>
+`;
