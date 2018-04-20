@@ -55,6 +55,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 srcSetWebp
                 srcWebp
               }
+              resolutions(width: 1200, height: 620) {
+                src
+              }
             }
           }
         }

@@ -10,6 +10,15 @@ export type SizeImageSharpType = {
   srcWebp?: string,
 };
 
+export type ResolutionImageSharpType = {
+  aspectRatio?: number,
+  base64?: string,
+  src: string,
+  srcSet?: string,
+  srcSetWebp?: string,
+  srcWebp?: string,
+};
+
 export type ChildImageSharpType = {
   childImageSharp: {
     sizes: SizeImageSharpType,

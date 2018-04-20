@@ -1,5 +1,5 @@
 // @flow
-import type { ChildImageSharpType, SizeImageSharpType } from './gatsby';
+import type { SizeImageSharpType, ResolutionImageSharpType } from './gatsby';
 import type { ArticleType } from './postsIndex';
 
 export type PaginationType = {
@@ -13,6 +13,7 @@ export type PaginationType = {
 export type AdditionalContextType = {
   cover?: {
     sizes: SizeImageSharpType,
+    resolutions: ResolutionImageSharpType,
   },
   tag: string,
   total: number,
@@ -27,5 +28,11 @@ export type SiteInfoType = {
   title: string,
   url: string,
   description: string,
-  cover: ChildImageSharpType,
+  cover: {
+    resolutions: ResolutionImageSharpType,
+  },
+};
+
+export type LocationType = {
+  pathname: string,
 };
