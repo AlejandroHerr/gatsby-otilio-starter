@@ -21,7 +21,7 @@ const defaultProps = {
     pathPrefix: 'prefix',
   },
   siteInfo: {
-    description: 'Test Description',
+    shortDescription: 'Test Description',
     cover: {
       childImageSharp: {
         sizes: {

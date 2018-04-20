@@ -27,7 +27,7 @@ const PostsIndex = ({ siteInfo, pathContext }: PropsType) => {
       <Header
         image={siteInfo.cover.childImageSharp.sizes}
         title={siteInfo.title}
-        description={siteInfo.description}
+        description={siteInfo.shortDescription}
       />
       <main role="main">
         {posts.map(article => (
