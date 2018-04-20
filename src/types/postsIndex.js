@@ -1,5 +1,5 @@
 // @flow
-import type { ChildImageSharpType } from './gatsby';
+import type { ResolutionImageSharpType, SizeImageSharpType } from './gatsby';
 
 export type TagType = {
   tag: string,
@@ -30,6 +30,12 @@ export type PathContextType = {
 export type SiteInfoType = {
   title: string,
   url: string,
+  shortDescription: string,
   description: string,
-  cover: ChildImageSharpType,
+  cover: {
+    childImageSharp: {
+      sizes: SizeImageSharpType,
+      resolutions: ResolutionImageSharpType,
+    },
+  },
 };

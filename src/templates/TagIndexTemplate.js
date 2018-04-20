@@ -51,7 +51,7 @@ const PostsIndexTemplate = ({ data, pathContext, location }: PropsType) => {
           content={metaImage}
         />
       </Helmet>
-      <TagIndex pathContext={pathContext} siteInfo={siteInfo} />
+      <TagIndex pathContext={pathContext} />
     </div>
   );
 };
