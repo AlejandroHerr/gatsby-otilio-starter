@@ -35,6 +35,7 @@ const PostTemplate = ({ data, pathContext }: PropsType) => {
   return (
     <div>
       <Helmet title={`${post.frontmatter.title} | ${siteInfo.title}`}>
+        <meta name="description" content={socialSummary.description} />
         <meta property="og:url" content={`${siteInfo.url}${post.fields.slug}`} />
         <meta property="og:title" content={socialSummary.frontmatter.title} />
         <meta property="og:description" content={socialSummary.description} />
