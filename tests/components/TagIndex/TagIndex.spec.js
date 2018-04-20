@@ -24,18 +24,6 @@ const defaultProps = {
       total: 10,
     },
   },
-  siteInfo: {
-    description: 'Test Description',
-    cover: {
-      childImageSharp: {
-        sizes: {
-          src: 'testSrc',
-        },
-      },
-    },
-    title: 'Test Title',
-    url: 'Test Url',
-  },
 };
 
 const setup = (props = {}) => {

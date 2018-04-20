@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 
-import type { PathContextType, SiteInfoType } from '../../types/tagIndex';
+import type { PathContextType } from '../../types/tagIndex';
 
 import Header from './Header';
 import Article from '../PostsIndex/Article';
@@ -9,10 +9,9 @@ import Pagination from '../PostsIndex/Pagination';
 
 type PropsType = {
   pathContext: PathContextType,
-  siteInfo: SiteInfoType,
 };
 
-const TagIndex = ({ siteInfo, pathContext }: PropsType) => {
+const TagIndex = ({ pathContext }: PropsType) => {
   const {
     group: posts,
     first,

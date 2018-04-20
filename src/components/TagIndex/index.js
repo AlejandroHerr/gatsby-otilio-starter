@@ -1,4 +1,4 @@
 // @flow
-import TagIndex from './TagIndex.js';
+import TagIndex from './TagIndex';
 
 export default TagIndex;
