@@ -31,7 +31,7 @@ export type SiteInfoType = {
   cover: {
     childImageSharp: {
       resolutions: ResolutionImageSharpType,
-    }
+    },
   },
 };
 
