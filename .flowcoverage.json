@@ -1,7 +1,10 @@
 {
   "concurrentFiles": 1,
   "excludeGlob": [
-    "node_modules/**"
+    "node_modules/**",
+    "src/gatsbyNode/**",
+    "src/html.js",
+    "src/layouts/index.js"
   ],
   "flowCommandPath": "./node_modules/.bin/flow",
   "includeGlob": [ "src/**/*.js" ],
