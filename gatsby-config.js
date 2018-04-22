@@ -65,21 +65,19 @@ module.exports = {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         query: `
-            {
-              site {
-                siteMetadata {
-                  siteUrl
+          {
+            site: file(relativePath: { eq: "siteInfo.json" }) {
+              siteMetadata: childDataJson {
+                siteUrl: url,
+              }
+            }
+            allSitePage {
+              edges {
+                node {
+                  path,
                 }
               }
-
-              allSitePage {
-                edges {
-                  node {
-                    path,
-
-                  }
-                }
-              }
+            }
           }`,
       },
     },
