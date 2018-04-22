@@ -29,7 +29,9 @@ export type SiteInfoType = {
   url: string,
   description: string,
   cover: {
-    resolutions: ResolutionImageSharpType,
+    childImageSharp: {
+      resolutions: ResolutionImageSharpType,
+    }
   },
 };
 

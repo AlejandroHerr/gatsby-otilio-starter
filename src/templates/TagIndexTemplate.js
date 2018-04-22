@@ -27,7 +27,7 @@ const PostsIndexTemplate = ({ data, pathContext, location }: PropsType) => {
   const metaDescription = `Posts about ${additionalContext.tag}. ${siteInfo.description}`;
   const metaImage = additionalContext.cover
     ? `${siteInfo.url}${additionalContext.cover.resolutions.src}`
-    : `${siteInfo.url}${siteInfo.cover.resolutions.src}`;
+    : `${siteInfo.url}${siteInfo.cover.childImageSharp.resolutions.src}`;
 
   return (
     <div>
@@ -55,14 +55,7 @@ const PostsIndexTemplate = ({ data, pathContext, location }: PropsType) => {
     </div>
   );
 };
-/*
-<meta property="og:title" content={socialSummary.frontmatter.title} />
-<meta property="og:description" content={socialSummary.description} />
-<meta property="og:type" content="article" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content={socialSummary.frontmatter.title} />
-<meta name="twitter:description" content={socialSummary.description} />
-*/
+
 export default PostsIndexTemplate;
 
 /* eslint-disable */
