@@ -48,7 +48,7 @@
     "react-helmet": "^5.2.0",
     "react-share": "^2.0.0",
     "react-share-icons": "^1.1.2",
-    "sharp": "^0.20.1",
+    "sharp": "^0.21.2",
     "slug": "^0.9.1",
     "syntax-highlighting": "https://github.com/atelierbram/syntax-highlighting.git"
   },
