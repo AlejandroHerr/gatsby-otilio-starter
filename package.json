@@ -44,7 +44,7 @@
     "normalize-css": "^2.3.1",
     "prop-types": "^15.6.1",
     "react": "^16.8.1",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.8.1",
     "react-helmet": "^5.2.0",
     "react-share": "^2.0.0",
     "react-share-icons": "^1.1.2",
