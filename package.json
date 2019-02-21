@@ -49,7 +49,7 @@
     "react-share": "^2.0.0",
     "react-share-icons": "^1.1.2",
     "sharp": "^0.20.1",
-    "slug": "^0.9.1",
+    "slug": "^1.0.0",
     "syntax-highlighting": "https://github.com/atelierbram/syntax-highlighting.git"
   },
   "devDependencies": {
