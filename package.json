@@ -58,7 +58,7 @@
     "babel-plugin-flow-react-proptypes": "^22.0.0",
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-adapter-react-16": "^1.11.0",
     "enzyme-to-json": "^3.3.3",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
